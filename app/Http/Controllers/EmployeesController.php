@@ -6,12 +6,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Employees;
 use App\Models\Position;
+use Illuminate\Support\Facades\Http;
 
 class EmployeesController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * 
      */
+ 
     public function index()
     {
         $heads=['ID','CUIL','PRIMER NOMBRE','SEGUNDO NOMBRE','PRIMER APELLIDO','SEGUNDO APELLIDO','TELEFONO','CARGO','SUELDO','FECHA DE ALTA','FECHA ACTUALIZACION','ACTIVO','ACCIONES'];
@@ -25,7 +28,8 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-       return 'hola';
+       
+        return view('employees.create');
     }
 
     /**
@@ -46,7 +50,9 @@ class EmployeesController extends Controller
                 ]
             );
            
-            Employees::create($request->except('_token'));
+           // Employees::create($request->except('_token'));
+           dd($request);
+
            
         }
         else{
@@ -62,9 +68,8 @@ class EmployeesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Employees $employees){
-    
-       return 'hola';
+    public function show(Employees $employee){
+       return view('employees.show',compact('employee'));
     }
 
     /**

@@ -7,11 +7,14 @@
     
 @stop
 @section('content')
-@include('employees.create')
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">
+
+
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">
     <i class="fa fa-plus" aria-hidden="true"></i>
     Agregar
 </button>
+-->
+<a href="{{route('employees.create')}}" class="btn btn-primary">Agregar</a>
 <br>
 <br>
 @if ($errors->any())
@@ -42,7 +45,7 @@
             <td>{{$row->active_employee}}</td>
             <td>
                 <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalShowEmployee{{$row->id}}" title="Details">
-                    <i class="fa fa-lg fa-fw fa-eye"></i>
+                    
                 </button>
                 <button type="button" class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal" data-target="#modalEditEmployee{{$row->id}}" title="Edit">
                     <i class="fa fa-lg fa-fw fa-pen"></i>
@@ -64,11 +67,7 @@
 @stop
 
 @section('js') 
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-single').select2();
-    });
-</script>
+
 
 @if (count($errors)>0)
     <script>
