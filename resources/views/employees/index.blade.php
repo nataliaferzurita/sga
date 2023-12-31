@@ -9,11 +9,7 @@
 @section('content')
 
 
-<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">
-    <i class="fa fa-plus" aria-hidden="true"></i>
-    Agregar
-</button>
--->
+
 <a href="{{route('employees.create')}}" class="btn btn-primary">Agregar</a>
 <br>
 <br>
@@ -24,7 +20,7 @@
         </x-adminlte-alert>
     @endforeach  
 @endif
-<x-adminlte-datatable id="table5" :heads="$heads" theme="light" striped hoverable with-buttons :config="['responsive'=>true]">
+<x-adminlte-datatable id="employees" :heads="$heads" theme="light" striped hoverable with-buttons :config="['responsive'=>true]">
     @foreach($employees as $row)
         <tr>
             @include('employees.update')
@@ -33,11 +29,17 @@
 
             <td>{{$row->id}}</td>
             <td>{{$row->cuil_employee}}</td>
+            <td>{{$row->dateOfEntry_employee}}</td>
             <td>{{$row->name1_employee}}</td>
             <td>{{$row->name2_employee}}</td>
             <td>{{$row->lastname1_employee}}</td>
             <td>{{$row->lastname2_employee}}</td>
+            <td>{{$row->nationality_employee}}</td>
             <td>{{$row->phone_employee}}</td>
+            <td>{{$row->country_employee}}</td>
+            <td>{{$row->state_employee}}</td>
+            <td>{{$row->city_employee}}</td>
+            <td>{{$row->address_employee}}</td>
             <td>{{$row->position->name_position}}</td>
             <td>{{$row->salary_employee}}</td>
             <td>{{$row->created_at}}</td>
@@ -45,7 +47,7 @@
             <td>{{$row->active_employee}}</td>
             <td>
                 <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalShowEmployee{{$row->id}}" title="Details">
-                    
+                    <i class="fa fa-lg fa-fw fa-eye"></i>
                 </button>
                 <button type="button" class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal" data-target="#modalEditEmployee{{$row->id}}" title="Edit">
                     <i class="fa fa-lg fa-fw fa-pen"></i>
@@ -67,6 +69,7 @@
 @stop
 
 @section('js') 
+
 
 
 @if (count($errors)>0)

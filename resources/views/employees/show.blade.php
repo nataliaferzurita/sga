@@ -2,20 +2,28 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Empleado</strong></h5>
+            <h1 class="modal-title" id="exampleModalCenterTitle"><strong>Legajo</strong></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="form-group">
+                <h5 class="d-flex justify-content-center"><strong>{{$row->name1_employee." ".$row->name2_employee." ".$row->lastname1_employee." ".$row->lastname2_employee}}</strong></h5>
+                <div>
+                    <img src="{{$row->photo_employee}}" class="mx-auto d-block" alt="Foto del Empleado">
+                </div>
                 <div class="row">
                     <div class="col">
-                        <label>Id:</label>
+                        <label>Numer de Legajo:</label>
                     </div>
                     <div class="col">
                         <label for="id">{{$row->id}}</label>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col"><label for="dateOfEntry_employee">Fecha de Ingreso:</label></div>
+                    <div class="col"><label for="">{{$row->dateOfEntry_employee}}</label></div>
                 </div>
                 <div class="row">
                     <div class="col"><label>CUIL:</label></div>
@@ -38,12 +46,32 @@
                     <div class="col"><label for="lastname2_employee">{{$row->lastname2_employee}}</label></div>
                 </div>
                 <div class="row">
+                    <div class="col"><label for="nationality_employee">Nacionalidad:</label></div>
+                    <div class="col"><label for="nationality_employee">{{$row->nationality_employee}}</label></div>
+                </div>
+                <div class="row">
                     <div class="col"><label>Telefono/Celular:</label></div>
                     <div class="col"><label for="phone_employee">{{$row->phone_employee}}</label></div>
                 </div>
                 <div class="row">
+                    <div class="col"><label for="country_employee">Pais:</label></div>
+                    <div class="col"><label for="">{{$row->country_employee}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col"><label for="state_employee">Provincia:</label></div>
+                    <div class="col"><label for="">{{$row->state_employee}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col"><label for="city_employee">Ciudad:</label></div>
+                    <div class="col"><label for="">{{$row->city_employee}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col"><label for="address_employee">Domicilio:</label></div>
+                    <div class="col"><label for="address_employee">{{$row->address_employee}}</label></div>
+                </div>
+                <div class="row">
                     <div class="col"><label>Puesto:</label></div>
-                    <div class="col"><label for="position_employee">{{$row->position_employee}}</label></div>
+                    <div class="col"><label for="position_employee">{{$row->position->name_position}}</label></div>
                 </div>
                 <div class="row">
                     <div class="col"><label>Sueldo:</label></div>
@@ -57,6 +85,13 @@
                     <div class="col"><label>Fecha de Actualizacion:</label></div>
                     <div class="col"><label for="created_at">{{$row->updated_at}}</label></div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="fa fa-times" aria-hidden="true"></i> Cerrar</button>
+                    <a class="btn btn-primary" href="{{route('employees.pdf',$row)}}" target="_blank">
+                        <i class="fa fa-print" aria-hidden="true"></i> Imprimir
+                    </a>    
+                  </div>
             
             </div>
           </div>
