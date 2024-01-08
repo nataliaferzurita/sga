@@ -3,7 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\ProvidersController;
 use App\Models\Employees;
+use App\Models\Providers;
 use Database\Factories\EmployeesFactory;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +35,4 @@ use Laravel\Socialite\Facades\Socialite;
  
 Route::get('/auth/redirect', [AuthController::class,'redirect'])->name('auth.redirect');
 Route::get('/auth/callback',[AuthController::class,'callback'])->name('auth.callback');
+Route::resource('providers',ProvidersController::class);

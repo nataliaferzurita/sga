@@ -2,7 +2,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title" id="exampleModalCenterTitle"><strong>Legajo</strong></h5>
+            <h1 class="modal-title" id="modalShowEmployee{{$row->id}}"><strong>Legajo</strong></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -103,7 +103,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        <i class="fa fa-times" aria-hidden="true"></i> Cerrar</button>
+                        <i class="fa fa-times" aria-hidden="true"></i> Cerrar
+                    </button>
                     <a class="btn btn-primary" href="{{route('employees.pdf',$row)}}" target="_blank">
                         <i class="fa fa-print" aria-hidden="true"></i> Imprimir
                     </a>    

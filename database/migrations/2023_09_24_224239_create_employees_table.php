@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('country_employee',20)->nullable();
             $table->string('state_employee',20)->nullable();
             $table->string('city_employee',20)->nullable();
+            $table->string('postalCode_employee')->nullable();
             $table->string('address_employee',100)->nullable();
             $table->date('dateOfEntry_employee');
             $table->unsignedBigInteger('position_employee');

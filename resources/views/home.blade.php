@@ -16,7 +16,7 @@
         </div>
         <div class="col">
             <x-adminlte-small-box title="528" text="Proveedores" icon="fa fa-users"
-            theme="primary" url="#" url-text="Ver Proveedores"/>
+            theme="primary" url="/providers" url-text="Ver Proveedores"/>
         </div>
         <div class="col">
             <x-adminlte-small-box title="528" text="Clientes" icon="fas fa-users"

@@ -57,6 +57,10 @@ $positions=App\Models\Position::where('active_position',1)->get();
     </div>
     @livewire('selects')
     <div class="row">
+      <div class="col-4 mb-4"><label for="postalCode_employee">Codigo Postal:</label></div>
+      <div class="col-4 mb-4"><input type="text" class="form-control"></div>
+    </div> 
+    <div class="row">
       <div class="col-4 mb-4"><label class="form-contol" for="address_employee">Domicilio:</label></div>
       <div class="col-4 mb-4"><input class="form-control" type="text" name="address_employee"></div>
     </div>
