@@ -13,12 +13,12 @@
             <div class="modal-body">
                 
               <div class="form-group">
-                  <label for="cuil_employee">CUIL:</label>
                   <label for="dateOfEntry_employee">Fecha de Ingreso:</label>
-                  <input type="text">
+                  <input class="form-control" type="date" name="dateOfEntry_employee" value={{$row->dateOfEntry_employee}}>
+                  <label for="cuil_employee">CUIL:</label>
                   <input type="text" class="form-control" name="cuil_employee" value="{{$row->cuil_employee}}">
                   <label for="name1_employee">Primer Nombre:</label>
-                  <input type="text" class="form-control" name="name1_employee" style="text-transform:uppercase" value="{{$row->name1_employee}}">
+                  <input type="text" class="form-control" name="name1_employee" value="{{$row->name1_employee}}">
                   <label for="name2_employee">Segundo Nombre:</label>
                   <input type="text" class="form-control" name="name2_employee" value="{{$row->name2_employee}}">
                   <label for="name1_employee">Primer Apellido:</label>
@@ -30,7 +30,8 @@
                   <label for="phone_employee">Telefono/Celular:</label>
                   <input type="numeric" class="form-control" name="phone_employee" value="{{$row->phone_employee}}">
                   <label for="address_employee">Domicilio:</label>
-                  <input type="text" name="address_employee" value="{{$row->address_employee}}">
+                  <input type="text" class="form-control" name="address_employee" value="{{$row->address_employee}}">
+                  <label for="phone_employee">Telefono/Celular:</label>
                   <input type="text" class="form-control" name="phone_employee" value="{{$row->phone_employee}}">
                   <label for="new_position">Nueva Puesto:</label>
                   <select class="js-example-basic-single form-control" name="position_employee">

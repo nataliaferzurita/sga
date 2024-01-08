@@ -34,7 +34,7 @@
                 <button type="button" class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal" data-target="#modalEditPosition{{$row->id}}" title="Edit">
                     <i class="fa fa-lg fa-fw fa-pen"></i>
                 </button>
-                <button class="btn btn-xs btn-default text-danger mx-1 shadow" data-toggle="modal" data-target="#modalDeletePosition{{$row->id}}" title="Delete">
+                <button class="btn btn-xs btn-default text-danger mx-1 shadow" data-toggle="modal" data-target="#modalDeleteEmployee{{$row->id}}" title="Delete">
                     <i class="fa fa-lg fa-fw fa-trash"></i>
                 </button>
             </td>

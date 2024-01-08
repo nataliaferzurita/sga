@@ -20,12 +20,14 @@
         </x-adminlte-alert>
     @endforeach  
 @endif
+
+
 <x-adminlte-datatable id="employees" :heads="$heads" theme="light" striped hoverable with-buttons :config="['responsive'=>true]">
     @foreach($employees as $row)
         <tr>
             @include('employees.update')
             @include('employees.show')
-            @include('employees.delete')
+            @include('employees.pepitalapistolera')
 
             <td>{{$row->id}}</td>
             <td>{{$row->cuil_employee}}</td>
@@ -34,6 +36,7 @@
             <td>{{$row->name2_employee}}</td>
             <td>{{$row->lastname1_employee}}</td>
             <td>{{$row->lastname2_employee}}</td>
+            <td>{{$row->dateOBirth_employee}}</td>
             <td>{{$row->nationality_employee}}</td>
             <td>{{$row->phone_employee}}</td>
             <td>{{$row->country_employee}}</td>
@@ -52,9 +55,10 @@
                 <button type="button" class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal" data-target="#modalEditEmployee{{$row->id}}" title="Edit">
                     <i class="fa fa-lg fa-fw fa-pen"></i>
                 </button>
-                <button  class="btn btn-xs btn-default text-danger mx-1 shadow" data-toggle="modal" data-target="#modalEmployee" title="Delete">
+                <button class="btn btn-xs btn-default text-danger mx-1 shadow" data-toggle="modal" data-target="#modal">
                     <i class="fa fa-lg fa-fw fa-trash"></i>
                 </button>
+                
                 
             </td>
         </tr>

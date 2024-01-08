@@ -18,7 +18,7 @@ class EmployeesController extends Controller
  
     public function index()
     {
-        $heads=['ID','CUIL','FECHA INGRESO','PRIMER NOMBRE','SEGUNDO NOMBRE','PRIMER APELLIDO','SEGUNDO APELLIDO','NACIONALIDAD','TELEFONO','PAIS','PROVINCIA','CIUDAD','DOMICILIO','PUESTO','SUELDO','FECHA DE ALTA','FECHA ACTUALIZACION','ACTIVO','ACCIONES'];
+        $heads=['ID','CUIL','FECHA INGRESO','PRIMER NOMBRE','SEGUNDO NOMBRE','PRIMER APELLIDO','SEGUNDO APELLIDO','NACIONALIDAD','FECHA DE NACIMIENTO','TELEFONO','PAIS','PROVINCIA','CIUDAD','DOMICILIO','PUESTO','SUELDO','FECHA DE ALTA','FECHA ACTUALIZACION','ACTIVO','ACCIONES'];
         $employees=Employees::where('active_employee',1)->get();
         
         return view('employees.index',compact('heads'),compact('employees'));
@@ -47,7 +47,8 @@ class EmployeesController extends Controller
                 'lastename2_employee'=>'max:20',
                 'salary_employee'=>'numeric',
                 'dateOfEntry_employee'=>'required',
-                'phone_employee'=>'required'
+                'phone_employee'=>'required|min:10|max:10',
+                'photo_employee'=>'dimensions:min_width=100,min_height=200'
             ]
         );
         $employee=Employees::where('cuil_employee','like',$request->cuil_employee)->get();
@@ -68,6 +69,7 @@ class EmployeesController extends Controller
             $employee->name2_employee=$request->name2_employee;
             $employee->lastname1_employee=$request->lastname1_employee;
             $employee->lastname2_employee=$request->lastname2_employee;
+            $employee->dateOfBirth_employee=$request->dateOfBirth_employee; 
             $employee->nationality_employee=$request->nationality_employee;
             $employee->phone_employee=$request->phone_employee;
             $employee->country_employee=$request->country_employee;
@@ -77,6 +79,7 @@ class EmployeesController extends Controller
             $employee->position_employee=$request->position_employee;
             $employee->salary_employee=$request->salary_employee;
             $employee->save();
+            
         }
         else{
             

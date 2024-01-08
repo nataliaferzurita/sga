@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('lastname1_employee',20);
             $table->string('lastname2_employee',20)->nullable();
             $table->string('nationality_employee',20)->nullable();
+            $table->date('dateOfBirth_employee')->nullable();
             $table->string('phone_employee',10)->nullable();
             $table->string('country_employee',20)->nullable();
             $table->string('state_employee',20)->nullable();

@@ -44,6 +44,10 @@ $positions=App\Models\Position::where('active_position',1)->get();
       <div class="col-4 mb-4"><input type="text" class="form-control" name="lastname2_employee"></div>
     </div>
     <div class="row">
+      <div class="col-4 mb-4"><label for="dateOBirth_employee">Fecha de Nacimiento:</label></div>
+      <div class="col-4 mb-4"><input class="form-control" type="date" name="dateOfBirth_employee" max="{{now()->toDateString('Y-m-d')}}"></div>
+    </div>
+    <div class="row">
       <div class="col-4 mb-4"><label for="nationality_employee">Nacionalidad:</label></div>
       <div class="col-4 mb-4"><input type="text" class="form-control" name="nationality_employee"></div>
     </div>
@@ -58,7 +62,7 @@ $positions=App\Models\Position::where('active_position',1)->get();
     </div>
     <div class="row">
       <div class="col-4 mb-4"><label for="dateOfEntry_employee">Fecha de Ingreso:</label></div>
-      <div class="col-4 mb-4"><input class="form-control" type="date" name="dateOfEntry_employee"></div>
+      <div class="col-4 mb-4"><input class="form-control" type="date" name="dateOfEntry_employee" max="{{now()->toDateString('Y-m-d')}}"></div>
     </div>
     <div class="row">
       <div class="col-4 mb-4"><label for="position_employee">Puesto:</label></div>

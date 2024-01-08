@@ -10,9 +10,13 @@
           <div class="modal-body">
             <div class="form-group">
                 <h5 class="d-flex justify-content-center"><strong>{{$row->name1_employee." ".$row->name2_employee." ".$row->lastname1_employee." ".$row->lastname2_employee}}</strong></h5>
-                <div>
-                    <img src="{{$row->photo_employee}}" class="mx-auto d-block" alt="Foto del Empleado">
-                </div>
+                
+                @if ($row->photo_employee!=null)
+                    <div>
+                        <img src="{{$row->photo_employee}}" class="mx-auto d-block" alt="Foto del Empleado">
+                    </div>
+                @endif
+               
                 <div class="row">
                     <div class="col">
                         <label>Numer de Legajo:</label>
@@ -46,6 +50,14 @@
                     <div class="col"><label for="lastname2_employee">{{$row->lastname2_employee}}</label></div>
                 </div>
                 <div class="row">
+                    <div class="col"><label for="dateOfBirth_employee">Fecha de Nacimiento:</label></div>
+                    <div class="col"><label for="dateOfBirth_employee">{{$row->dateOfBirth_employee}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col"><label for="age_employee">Edad:</label></div>
+                    <div class="col"><label for="age_employee">{{Carbon\Carbon::parse($row->dateOfBirth_employee)->age}}</label></div>
+                </div>
+                <div class="row">
                     <div class="col"><label for="nationality_employee">Nacionalidad:</label></div>
                     <div class="col"><label for="nationality_employee">{{$row->nationality_employee}}</label></div>
                 </div>
@@ -68,6 +80,10 @@
                 <div class="row">
                     <div class="col"><label for="address_employee">Domicilio:</label></div>
                     <div class="col"><label for="address_employee">{{$row->address_employee}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col"><label for="antiquity_employee">Antigüedad:</label></div>
+                    <div class="col"><label for="antiquity_employee">{{Carbon\Carbon::parse($row->dateOfEntry_employee)->age}}</label></div>
                 </div>
                 <div class="row">
                     <div class="col"><label>Puesto:</label></div>

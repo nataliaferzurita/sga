@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71fd63d9f641b3e6e6855afbf93e08c8",
+    "content-hash": "561eeb4e9de4f7a9d835161f1e50a328",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -8893,5 +8893,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
