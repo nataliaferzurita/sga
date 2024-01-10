@@ -22,8 +22,9 @@ return new class extends Migration
             $table->string('postalCode_provider',10)->nullable();
             $table->string('address_provider',100)->nullable();
             $table->string('alias_provider',20)->nullable();
-            
+            $table->string('contactName_provider',50);
             $table->timestamps();
+            $table->boolean('active_provider',true);
         });
     }
 

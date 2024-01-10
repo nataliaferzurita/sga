@@ -13,9 +13,9 @@ class ProvidersController extends Controller
      */
     public function index()
     {
-        $heads=['ID','CUIT','FECHA CREACION','ULTIMA ACTUALIZACION','ESTADO',['label' => 'Actions', 'no-export' => true, 'width' => 15]];
-        $positions=Providers::where('active_position',1)->get();
-        return view('positions.index',compact('heads'),compact('positions'));
+        $heads=['ID','CUIT','NOMBRE','TELEFONO','PAIS','PROVICIA','CIUDAD','CODIGO POSTAL','DOMICILIO','ALIAS','CONTACTO','FECHA CREACION','FECHA DE ACTUALIZACION','ACTIVO','ACCIONES'];
+        $providers=Providers::where('active_provider',1)->get();
+        return view('providers.index',compact('heads'),compact('providers'));
         
     }
 

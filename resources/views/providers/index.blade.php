@@ -3,9 +3,9 @@
 @section('title', 'Cargos')
 
 @section('content_header')
-    <h1>Proveedores</h1>
-    @include('provider.create')
-    <button class="btn btn-primary" data-toggle="modal" data-target="#modalCreatePosition">Agregar</button>
+    <h1><strong>Proveedores</strong></h1>
+    @include('providers.create')
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modalCreateProvider">Agregar</button>
 @stop
 @section('content')
 
@@ -18,11 +18,9 @@
 @endif
 
 <x-adminlte-datatable id="table5" :heads="$heads" theme="light" striped hoverable with-buttons>
-    @foreach($positions as $row)
+    @foreach($providers as $row)
         <tr>
-            @include('provider.update')
-            @include('provider.show')
-            @include('provider.delete')
+          
 
             @foreach($row ->toArray() as $cell)
                 <td>{{ $cell}}</td>
@@ -127,6 +125,9 @@
         })
     })
 </script>
-
-
+<script>
+    $(document).ready(function() {
+    $('.select2').select2();
+});
+</script>
 @stop
