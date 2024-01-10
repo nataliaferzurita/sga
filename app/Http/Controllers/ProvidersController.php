@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProvidersRequest;
-use App\Http\Requests\UpdateProvidersRequest;
+
 use App\Models\Providers;
+use Illuminate\Http\Request;
 
 class ProvidersController extends Controller
 {
@@ -30,9 +30,14 @@ class ProvidersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProvidersRequest $request)
+    public function store(Request $request)
     {
-        //
+       $request->validate([
+        'cuit_provider'=>'required|min:11|max:11|numeric',
+        'name_provider'=>'required|min:1|max:20'
+
+        ]
+       );
     }
 
     /**
@@ -54,7 +59,7 @@ class ProvidersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProvidersRequest $request, Providers $providers)
+    public function update(Request $request, Providers $providers)
     {
         //
     }
