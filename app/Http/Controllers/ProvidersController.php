@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Providers;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Contracts\Provider;
 
 class ProvidersController extends Controller
 {
@@ -32,12 +33,35 @@ class ProvidersController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
-        'cuit_provider'=>'required|min:11|max:11|numeric',
-        'name_provider'=>'required|min:1|max:20'
-
+        
+        $request->validate([
+            'cuit_provider'=>'required|numeric',
+            'name_provider'=>'required|min:1|max:20'
         ]
        );
+       $provider=Providers::where('cuit_provider','like',$request->cuit_provider)->get();
+
+       if($provider->isEmpty()){
+            $provider=new Providers();
+            $provider->cuit_provider=$request->cuit_provider;
+            $provider->name_provider=$request->name_provider;
+            $provider->phone_provider=$request->phone_provider;
+            $provider->country_provider=$request->country_provider;
+            $provider->state_provider=$request->state_provider;
+            $provider->city_provider=$request->city_provider;
+            $provider->postalCode_provider=$request->postalCode_provider;
+            $provider->address_provider=$request->address_provider;
+            $provider->alias_provider=$request->alias_provider;
+            $provider->contactName_provider=$request->contactName_provider;
+            $provider->save();
+           
+
+       }
+       else{
+                $provider->first()->active_provider=1;
+                $provider->first()->save();
+       }
+       return back()->with('Ok','success');
     }
 
     /**

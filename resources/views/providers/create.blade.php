@@ -12,7 +12,7 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="cuit_provider">CUIT:</label>
-              <input type="text" class="form-control" name="cuit_provider">
+              <input type="text" class="form-control" name="cuit_provider" min:11 max:11>
               <label for="name_provider">Nombre o Razón Social:</label>
               <input type="text" name="name_provider" class="form-control">
               <br>

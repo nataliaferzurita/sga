@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
             $table->string('cuit_provider',11);
-            $table->string('name_provider',20);
+            $table->string('name_provider',50);
             $table->string('phone_provider',10)->nullable();
             $table->string('country_provider',20)->nullable();
             $table->string('state_provider',20)->nullable();
@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('postalCode_provider',10)->nullable();
             $table->string('address_provider',100)->nullable();
             $table->string('alias_provider',20)->nullable();
-            $table->string('contactName_provider',50);
+            $table->string('contactName_provider',50)->nullable();
             $table->timestamps();
-            $table->boolean('active_provider',true);
+            $table->boolean('active_provider')->default(true);
         });
     }
 

@@ -17,11 +17,12 @@
     @endforeach  
 @endif
 
-<x-adminlte-datatable id="table5" :heads="$heads" theme="light" striped hoverable with-buttons>
+<x-adminlte-datatable id="providers" :heads="$heads" theme="light" striped hoverable with-buttons :config="['responsive'=>true]">
     @foreach($providers as $row)
         <tr>
-          
-
+            @include('providers.update')
+            @include('providers.show')
+            @include('providers.delete')
             @foreach($row ->toArray() as $cell)
                 <td>{{ $cell}}</td>
             @endforeach
@@ -29,7 +30,7 @@
                 <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalShowProvider{{$row->id}}" title="Details">
                     <i class="fa fa-lg fa-fw fa-eye"></i>
                 </button>
-                <button type="button" class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal" data-target="#modalEditProvider{{$row->id}}" title="Edit">
+                <button type="button" class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal" data-target="#modalEditprovider{{$row->id}}" title="Edit">
                     <i class="fa fa-lg fa-fw fa-pen"></i>
                 </button>
                 <button class="btn btn-xs btn-default text-danger mx-1 shadow" data-toggle="modal" data-target="#modalDeleteProvider{{$row->id}}" title="Delete">

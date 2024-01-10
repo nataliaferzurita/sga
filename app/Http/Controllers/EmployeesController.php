@@ -40,7 +40,7 @@ class EmployeesController extends Controller
     {
         $request->validate(
             [
-                'cuil_employee'=>'required|min:11|max:11|unique:employees',
+                'cuil_employee'=>'required|min:11|max:11',
                 'name1_employee'=>'required|min:1|max:20',
                 'name2_employee'=>'max:20',
                 'lastname1_employee'=>'required|min:1|max:20',

@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+<div class="modal fade" id="modalDeleteEmployee{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
