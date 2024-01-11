@@ -35,7 +35,7 @@ class ProvidersController extends Controller
     {
         
         $request->validate([
-            'cuit_provider'=>'required|numeric',
+            'cuit_provider'=>'required|numeric|max:10000000000|min:99999999999',
             'name_provider'=>'required|min:1|max:20'
         ]
        );
@@ -83,9 +83,26 @@ class ProvidersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Providers $providers)
+    public function update(Request $request, Providers $provider)
     {
-        //
+            $request->validate([
+                    'cuit_provider'=>'required|numeric|max:10000000000|min:99999999999|unique:providers',
+                    'name_provider'=>'required|min:1|max:20'
+                ]
+            );
+            $provider->cuit_provider=$request->cuit_provider;
+            $provider->name_provider=$request->name_provider;
+            $provider->phone_provider=$request->phone_provider;
+            $provider->country_provider=$request->country_provider;
+            $provider->state_provider=$request->state_provider;
+            $provider->city_provider=$request->city_provider;
+            $provider->postalCode_provider=$request->postalCode_provider;
+            $provider->address_provider=$request->address_provider;
+            $provider->alias_provider=$request->alias_provider;
+            $provider->contactName_provider=$request->contactName_provider;
+            $provider->save();
+            return dd($provider);
+            //return back()->with('update','ok');
     }
 
     /**
