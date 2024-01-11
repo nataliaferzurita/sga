@@ -90,7 +90,6 @@ class PositionController extends Controller
     {
         $position->active_position=0;
         $position->save();
-        //$position->delete();
         return back()->with('eliminar','ok');
         
     }

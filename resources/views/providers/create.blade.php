@@ -12,9 +12,9 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="cuit_provider">CUIT:</label>
-              <input type="text" class="form-control" name="cuit_provider">
+              <input type="text" class="form-control" name="cuit_provider" maxlength="11" inputmode="numeric">
               <label for="name_provider">Nombre o Razón Social:</label>
-              <input type="text" name="name_provider" class="form-control">
+              <input type="text" name="name_provider" class="form-control" maxlength="20">
               <br>
               @livewire('selects')
               <label for="postalCode_provider">Codigo Postal:</label>
@@ -22,7 +22,7 @@
               <label for="address_provider">Domicilio:</label>
               <input type="text" name="address_provider" class="form-control">
               <label for="phone_provider">Telefono/Celular:</label>
-              <input type="text" name="phone_provider" class="form-control">
+              <input type="tel" name="phone_provider" class="form-control">
               <label for="alias_provider">Alias:</label>
               <input type="text" name="alias_provider" class="form-control">
               <label for="contactName_provider">Nombre Contacto</label>

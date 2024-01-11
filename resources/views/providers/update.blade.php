@@ -8,7 +8,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form id="form-update" action="{{route('providers.update',$row)}}" method="get">
+          <form id="form-update" action="{{route('providers.update',$row)}}" method="post">
             @method('put') @csrf
             <div class="row">
               <div class="col"><label for="cuit_provider">CUIT:</label></div>
