@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Providers;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Contracts\Provider;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 class ProvidersController extends Controller
 {
     /**
@@ -93,7 +93,7 @@ class ProvidersController extends Controller
             $provider->cuit_provider=$request->cuit_provider;
             $provider->name_provider=$request->name_provider;
             $provider->phone_provider=$request->phone_provider;
-            $provider->county_provider=$request->county_provider;
+            $provider->country_provider=$request->country_provider;
             $provider->state_provider=$request->state_provider;
             $provider->city_provider=$request->city_provider;
             $provider->postalCode_provider=$request->postalCode_provider;
@@ -108,11 +108,16 @@ class ProvidersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Providers $providers)
+    public function destroy(Providers $provider)
     {
-        /*$providers->active_provider=0;
-        $providers->save();
-        return back()->with('eliminar','ok');*/
-        return dd($providers->id);
+        $provider->active_provider=0;
+        $provider->save();
+        return back()->with('eliminar','ok');
+       
+    }
+
+    public function pdf(Providers $provider){
+        $pdf=PDF::loadView('providers/report',['row'=>$provider]);
+        return $pdf->setPaper('a4','landscape')->stream('invoke.pdf');
     }
 }

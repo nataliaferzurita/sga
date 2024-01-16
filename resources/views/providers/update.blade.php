@@ -42,7 +42,7 @@
             <br>
             <div class="row">
               <div class="col"><label for="postalCode_provider">Código Postal:</label></div>
-              <div class="col"><input class="form-control" type="text" value="{{$row->postalCode}}" name="postalCode_provider"></div>
+              <div class="col"><input class="form-control" type="text" value="{{$row->postalCode_provider}}" name="postalCode_provider"></div>
             </div>
             <br>
             <div class="row">
@@ -52,7 +52,7 @@
             <br>
             <div class="row">
               <div class="col"><label for="alias_provider">Alias:</label></div>
-              <div class="col"><input class="form-control" type="text" value{{$row->alias_provider}} name="alias_provider"></div>
+              <div class="col"><input class="form-control" type="text" value="{{$row->alias_provider}}" name="alias_provider"></div>
             </div>
             <br>
             <div class="row">

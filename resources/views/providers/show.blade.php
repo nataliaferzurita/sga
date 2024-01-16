@@ -51,7 +51,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Imprimir Etiqueta</button>
+          <a class="btn btn-primary" href="{{route('providers.pdf',$row)}}" target="_blank">
+            <i class="fa fa-print" aria-hidden="true"></i> Imprimir Etiqueta
+        </a> 
         </div>
       </div>
     </div>

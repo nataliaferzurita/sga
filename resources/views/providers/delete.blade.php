@@ -2,13 +2,14 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title" id="exampleModalLabel"><strong>Registro</strong></h2>
+          <h2 class="modal-title" id="exampleModalLabel"><strong>Proveedor</strong></h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        
         <div class="modal-body">
-          <div class="row">
+            <div class="row">
             <div class="col"><label for="cuit_provider">CUIT:</label></div>
             <div class="col"><label for="cuit_provider">{{$row->cuit_provider}}</label></div>
           </div>
@@ -48,7 +49,6 @@
             <div class="col"><label for="alias_provider">Alias:</label></div>
             <div class="col"><label for="alias_provider">{{$row->alias_provider}}</label></div>
           </div>
-        </div>
         
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -56,8 +56,8 @@
               @csrf
               @method('delete')
             <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
           </div>
-        </form>
       </div>
     </div>
   </div>

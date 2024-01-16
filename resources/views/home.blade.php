@@ -7,7 +7,10 @@
 @stop
 
 @section('content')
-@php($empleados=App\Models\Employees::all())
+@php
+$empleados=App\Models\Employees::all();
+$proveedores=App\Models\Providers::all();
+@endphp
 <div>
     <div class="row">
         <div class="col">
@@ -15,12 +18,12 @@
             theme="warning" url="/employees" url-text="Ver Empleados"/>
         </div>
         <div class="col">
-            <x-adminlte-small-box title="528" text="Proveedores" icon="fa fa-users"
+            <x-adminlte-small-box title={{count($proveedores)}} text="Proveedores" icon="fa fa-users"
             theme="primary" url="/providers" url-text="Ver Proveedores"/>
         </div>
         <div class="col">
             <x-adminlte-small-box title="528" text="Clientes" icon="fas fa-users"
-            theme="success" url="#" url-text="Ver Clientes"/>
+            theme="success" url="/clients" url-text="Ver Clientes"/>
         </div>
     
     </div>

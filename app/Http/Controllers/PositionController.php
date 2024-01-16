@@ -6,6 +6,7 @@ use App\Http\Requests\StorePositionRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdatePositionRequest;
 use App\Models\Position;
+use GuzzleHttp\RetryMiddleware;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\DB;
 
@@ -91,6 +92,7 @@ class PositionController extends Controller
         $position->active_position=0;
         $position->save();
         return back()->with('eliminar','ok');
+        
         
     }
 
