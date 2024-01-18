@@ -3,9 +3,9 @@
 @section('title', 'Productos')
 
 @section('content_header')
-    <h1>Productos</h1>
+    <h1><strong>Productos</strong></h1><br>
     @include('products.create')
-    <button class="btn btn-primary" data-toggle="modal" data-target="#modalCreatePosition">Agregar</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modalCreateProduct">Agregar</button>
 @stop
 @section('content')
 

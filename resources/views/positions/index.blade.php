@@ -62,17 +62,28 @@
 
 @endif
 
-@if (Session::has('Ok'))
-    <script>
-        Swal.fire({
-        icon: 'success',
-        title: '¡El registro fue realizado exitosamente!',
-        showConfirmButton: false,
-        timer: 1500
-    })
 
-    </script>
+@if (session('insert')=='ok')
+<script>
+    Swal.fire({
+    icon: 'success',
+    title: '¡El registro fue realizado exitosamente!',
+    showConfirmButton: false,
+    timer: 1500
+})
+
+</script>
+@else
+<script>
+    Swal.fire({
+    icon: 'error',
+    title: 'La operacion no se puedo realizar correctamente',
+    showConfirmButton: false,
+    timer: 3000
+})
+</script>
 @endif
+
 @if (session('eliminar')=='ok')
     <script>
          Swal.fire(

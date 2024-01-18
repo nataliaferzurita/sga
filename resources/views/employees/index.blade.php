@@ -7,9 +7,6 @@
     
 @stop
 @section('content')
-
-
-
 <a href="{{route('employees.create')}}" class="btn btn-primary">Agregar</a>
 <br>
 <br>

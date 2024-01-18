@@ -45,11 +45,15 @@ class PositionController extends Controller
                 Position::create($request->all());
         }
         else {
-            $position->first()->active_position=true;
-            $position->first()->save();
+            if( $position->first()->active_position==false){
+                $position->first()->active_position=true;
+                $position->first()->save();
+            }
+            else return back()->with('insert','no');
+            
         }
             
-        return back()->with('Ok','success');
+        return back()->with('insert','yes');
     }
 
     /**
