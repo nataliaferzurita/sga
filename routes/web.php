@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProvidersController;
 use App\Models\Employees;
 use App\Models\Providers;
@@ -39,3 +40,4 @@ Route::get('/auth/callback',[AuthController::class,'callback'])->name('auth.call
 Route::get('provider/{provider}/pdf',[ProvidersController::class,'pdf'])->name('providers.pdf');
 Route::resource('providers',ProvidersController::class);
 Route::resource('clients',ClientsController::class);
+Route::resource('products',ProductsController::class);

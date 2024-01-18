@@ -20,4 +20,8 @@ class Providers extends Model
         'contactName_provider',
         'active_provider'
 ];
+
+public function products(){
+    return $this->hasMany(Products::class);
+}
 }

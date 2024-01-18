@@ -10,6 +10,7 @@
 @php
 $empleados=App\Models\Employees::all();
 $proveedores=App\Models\Providers::all();
+$productos=App\Models\Products::all();
 @endphp
 <div>
     <div class="row">
@@ -29,8 +30,8 @@ $proveedores=App\Models\Providers::all();
     </div>
     <div class="row">
         <div class="col">
-                <x-adminlte-small-box title="528" text="Compras" icon="fa fa-shopping-cart"
-                theme="info" url="#" url-text="Ver Compras"/>
+                <x-adminlte-small-box title="{{count($productos)}}" text="Productos" icon="fa fa-shopping-cart"
+                theme="info" url="/products" url-text="Ver Productos"/>
         </div>
         <div class="col">
             <x-adminlte-small-box title="528" text="Ventas" icon="fa fa-money"

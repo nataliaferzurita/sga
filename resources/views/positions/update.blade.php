@@ -1,5 +1,6 @@
-
-<div class="modal fade" id="modalEditPosition{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<form id="form-update" action="{{route('positions.update',$row)}}" method="post">
+  @method('put') @csrf
+  <div class="modal fade" id="modalEditPosition{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -8,8 +9,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="form-update" action="{{route('positions.update',$row)}}" method="post">
-          @method('put') @csrf
+        
+         
         <div class="modal-body">
           <div class="form-group">
             <div class="row"><label for="new_position">Nombre del Puesto:</label></div>

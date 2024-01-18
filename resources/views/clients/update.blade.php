@@ -1,5 +1,4 @@
-<form action="{{route('clients.update',$row)}}" method="post">
-    <div class="modal fade" id="modalUpdateClient{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalUpdateClient{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -9,6 +8,8 @@
               </button>
             </div>
             <div class="modal-body">
+              <form id="form-update" action="{{route('clients.update',$row)}}" method="post">
+                @method('put') @csrf
               <div class="row">
                 <div class="col mb-3"><label for="id_cliente">Numero de Cliente:</label></div>
                 <div class="col mb-3"><label for="id">{{$row->id}}</label></div>
@@ -54,12 +55,14 @@
                 <div class="col"><input type="text" name="address_client" class="form-control" value="{{$row->address_client}}"></div>
               </div>
             </div>
+          
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
+          </form>
           </div>
         </div>
       </div>
-</form>
+    
 

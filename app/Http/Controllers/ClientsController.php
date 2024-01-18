@@ -79,16 +79,38 @@ class ClientsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Clients $clients)
+    public function update(Request $request, Clients $client)
     {
-        //
+        $request->validate([
+            'dni_client'=> 'required',
+            'name1_client'=> 'required|min:1|max:20',
+            'name2_client'=> 'max:20',
+            'lastname_client'=>'required'
+        ]);
+        $client->dni_client=$request->dni_client;
+        $client->name1_client=$request->name1_client;
+        $client->name2_client=$request->name2_client;
+        $client->lastname_client=$request->lastname_client;
+        $client->phone_client=$request->phone_client;
+        $client->country_client=$request->country_client;
+        $client->state_client=$request->state_client;
+        $client->city_client=$request->city_client;
+        $client->postalCode_client=$request->postalCode_client;
+        $client->address_client=$request->address_client;
+        $client->save();
+
+        return back()->with('update','ok');
+
+        
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Clients $clients)
+    public function destroy(Clients $client)
     {
-        //
+        $client->active_client=0;
+        $client->save();
+        return back()->with('eliminar','ok');
     }
 }
