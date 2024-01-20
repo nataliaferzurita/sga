@@ -3,7 +3,8 @@
 @section('title', 'Cargos')
 
 @section('content_header')
-    <h1>Cargos</h1>
+    <h1><strong>Cargos</strong></h1><br>
+    
     @include('positions.create')
     <button class="btn btn-primary" data-toggle="modal" data-target="#modalCreatePosition">Agregar</button>
 @stop
@@ -63,44 +64,25 @@
 @endif
 
 
-@if (session('insert')=='ok')
+@if (session('insert') or session('eliminar') or session('update')=='ok')
 <script>
     Swal.fire({
     icon: 'success',
-    title: '¡El registro fue realizado exitosamente!',
+    title: '¡La operación fue realizada exitosamente!',
     showConfirmButton: false,
     timer: 1500
 })
-
-</script>
-@else
-<script>
-    Swal.fire({
-    icon: 'error',
-    title: 'La operacion no se puedo realizar correctamente',
-    showConfirmButton: false,
-    timer: 3000
-})
 </script>
 @endif
-
-@if (session('eliminar')=='ok')
+@if (session('insert')=='no')
     <script>
-         Swal.fire(
-            '¡Eliminado!',
-            '¡El registro fue eliminado correctamente!.',
-            'success'
-            )
-    </script>
-@endif
-@if (session('update')=='ok')
-    <script>
-         Swal.fire(
-            '¡Actualizado!',
-            '¡El registro fue actualizado correctamente!.',
-            'success'
-            )
-    </script>
+        Swal.fire({
+        icon: 'error',
+        title: 'La operacion no se puedo realizar correctamente, el puesto ya existe.',
+        showConfirmButton: false,
+        timer: 3000
+    })
+    </script>   
 @endif
 <script>
     $('#form-delete').submit(function(e){

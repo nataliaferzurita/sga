@@ -50,6 +50,7 @@
 @stop
 
 @section('js')
+
 @if (count($errors)>0)
     <script>
         Swal.fire({
@@ -62,34 +63,26 @@
 
 @endif
 
-@if (Session::has('Ok'))
+
+@if (session('insert') or session('eliminar') or session('update')=='ok')
+<script>
+    Swal.fire({
+    icon: 'success',
+    title: '¡La operación fue realizada exitosamente!',
+    showConfirmButton: false,
+    timer: 1500
+})
+</script>
+@endif
+@if (session('insert')=='no')
     <script>
         Swal.fire({
-        icon: 'success',
-        title: '¡El registro fue realizado exitosamente!',
+        icon: 'error',
+        title: 'La operacion no se puedo realizar correctamente, el puesto ya existe.',
         showConfirmButton: false,
-        timer: 1500
+        timer: 3000
     })
-
-    </script>
-@endif
-@if (session('eliminar')=='ok')
-    <script>
-         Swal.fire(
-            '¡Eliminado!',
-            '¡El registro fue eliminado correctamente!.',
-            'success'
-            )
-    </script>
-@endif
-@if (session('update')=='ok')
-    <script>
-         Swal.fire(
-            '¡Actualizado!',
-            '¡El registro fue actualizado correctamente!.',
-            'success'
-            )
-    </script>
+    </script>   
 @endif
 <script>
     $('#form-delete').submit(function(e){
@@ -126,10 +119,5 @@
         }
         })
     })
-</script>
-<script>
-    $(document).ready(function() {
-    $('.select2').select2();
-});
 </script>
 @stop

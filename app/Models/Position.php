@@ -14,15 +14,10 @@ class Position extends Model
         return $this->hasMany(Employees::class);
     }
 
-    protected function name_position(){
-        return new Attribute(
-            get: function ($value){
-                return ucwords($value);
-            },
-            set: function ($value){
-                return strtolower($value);
-            }
-        );
-        
-    }
+   public function setNamePositionAttribute($value){
+    $this->attributes['name_position']=strtolower($value);
+   }
+   public function getNamePositionAttribute($value){
+    return ucwords($value);
+   }
 }

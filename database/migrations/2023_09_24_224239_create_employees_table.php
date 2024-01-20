@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('cuil_employee');
+            $table->string('cuil_employee',10);
             $table->string('name1_employee',20);
             $table->string('name2_employee',20)->nullable();
             $table->string('lastname1_employee',20);
@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('country_employee',20)->nullable();
             $table->string('state_employee',20)->nullable();
             $table->string('city_employee',20)->nullable();
-            $table->string('postalCode_employee')->nullable();
-            $table->string('address_employee',100)->nullable();
+            $table->string('postalCode_employee',10)->nullable();
+            $table->string('address_employee',50)->nullable();
             $table->date('dateOfEntry_employee');
             $table->unsignedBigInteger('position_employee');
             $table->foreign('position_employee')->references('id')->on('positions');

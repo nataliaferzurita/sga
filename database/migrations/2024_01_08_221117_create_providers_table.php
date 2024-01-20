@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('cuit_provider',11);
             $table->string('name_provider',50);
+            $table->string('fantasyName_provider',20);
             $table->string('phone_provider',10)->nullable();
             $table->string('country_provider',20)->nullable();
             $table->string('state_provider',20)->nullable();

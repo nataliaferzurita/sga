@@ -36,7 +36,15 @@ class ProvidersController extends Controller
         
         $request->validate([
             'cuit_provider'=>'required|numeric',
-            'name_provider'=>'required|min:1|max:20'
+            'name_provider'=>'required|min:1|max:20',
+            'phone_provider'=>'max:10',
+            'country_provider'=>'max:20',
+            'state_provider'=>'max:20',
+            'city_provider'=>'max:20',
+            'postalCode_provider'=>'max:10',
+            'address_provider'=>'max:100',
+            'alias_provider'=>'max:20',
+            'contactName_provider'=>'max:50'
         ]
        );
        $provider=Providers::where('cuit_provider','like',$request->cuit_provider)->get();
@@ -58,10 +66,13 @@ class ProvidersController extends Controller
 
        }
        else{
-                $provider->first()->active_provider=1;
-                $provider->first()->save();
+                if($provider->first()->active_provider==false){
+                    $provider->first()->active_provider=true;
+                    $provider->first()->save();
+                }
+                else return back()->with('insert','no');
        }
-       return back()->with('Ok','success');
+       return back()->with('insert','ok');
     }
 
     /**
@@ -86,10 +97,17 @@ class ProvidersController extends Controller
     public function update(Request $request, Providers $provider)
     {
             $request->validate([
-                    'cuit_provider'=>'required|numeric',
-                    'name_provider'=>'required|min:1|max:20'
-                ]
-            );
+                'cuit_provider'=>'required|numeric',
+                'name_provider'=>'required|min:1|max:20',
+                'phone_provider'=>'max:10',
+                'country_provider'=>'max:20',
+                'state_provider'=>'max:20',
+                'city_provider'=>'max:20',
+                'postalCode_provider'=>'max:10',
+                'address_provider'=>'max:100',
+                'alias_provider'=>'max:20',
+                'contactName_provider'=>'max:50'
+            ]);
             $provider->cuit_provider=$request->cuit_provider;
             $provider->name_provider=$request->name_provider;
             $provider->phone_provider=$request->phone_provider;

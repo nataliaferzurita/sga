@@ -12,7 +12,7 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="name_position">Nombre del Puesto:</label>
-              <input type="text" class="form-control" name="name_position" style="text-transform:uppercase">
+              <input type="text" class="form-control" name="name_position">
             </div>
           </div>
           <div class="modal-footer">

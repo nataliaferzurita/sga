@@ -35,13 +35,14 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'name_position'=>'required|min:1|max:20'
+            ]
+            );
         $position=Position::where('name_position','like',$request->name_position)->get();
         if($position->isEmpty()){
-            $request->validate(
-                [
-                    'name_position'=>'required|min:1|max:20'
-                ]
-                );
+           
                 Position::create($request->all());
         }
         else {
@@ -53,7 +54,7 @@ class PositionController extends Controller
             
         }
             
-        return back()->with('insert','yes');
+        return back()->with('insert','ok');
     }
 
     /**

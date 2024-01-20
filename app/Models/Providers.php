@@ -24,4 +24,60 @@ class Providers extends Model
 public function products(){
     return $this->hasMany(Products::class);
 }
+
+public function setNameProviderAttribute($value){
+    $this->attributes['name_provider']=strtolower($value);
+}
+public function getNameProviderAttribute($value){
+    return ucwords($value);
+}
+public function setCountryProviderAttribute($value){
+    $this->attributes['country_provider']=strtolower($value);
+}
+
+public function getCountryProviderAttribute($value){
+    return ucwords($value);
+}
+
+public function setStateProviderAttribute($value){
+    $this->attributes['state_provider']=strtolower($value);
+}
+
+public function getStateProviderAttribute($value){
+    return ucwords($value);
+}
+
+public function setCityProviderAttribute($value){
+    $this->attributes['city_provider']=strtolower($value);
+}
+
+public function getCityProviderAttribute($value){
+    return ucwords($value);
+
+}
+
+public function setAddressProviderAttribute($value){
+    $this->attributes['address_provider']=strtolower($value);
+}
+
+public function getAddressProviderAttribute($value){
+    return ucwords($value);
+}
+
+public function setAliasProviderAttribute($value){
+    $this->attributes['alias_provider']=strtolower($value);
+}
+
+public function getAliasProviderAttribute($value){
+    return ucwords($value);
+}
+
+public function setContactNameProviderAttribute($value){
+    $this->attributes['contactName_provider']=strtolower($value);
+}
+
+public function getContactNameProviderAttribute($value){
+    return ucwords($value);
+}
+
 }

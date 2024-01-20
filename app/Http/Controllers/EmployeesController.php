@@ -18,7 +18,7 @@ class EmployeesController extends Controller
  
     public function index()
     {
-        $heads=['ID','CUIL','FECHA INGRESO','PRIMER NOMBRE','SEGUNDO NOMBRE','PRIMER APELLIDO','SEGUNDO APELLIDO','NACIONALIDAD','FECHA DE NACIMIENTO','TELEFONO','PAIS','PROVINCIA','CIUDAD','DOMICILIO','PUESTO','SUELDO','FECHA DE ALTA','FECHA ACTUALIZACION','ACTIVO','ACCIONES'];
+        $heads=['ID','CUIL','FECHA INGRESO','PRIMER NOMBRE','SEGUNDO NOMBRE','PRIMER APELLIDO','SEGUNDO APELLIDO','NACIONALIDAD','FECHA DE NACIMIENTO','TELEFONO','PAIS','PROVINCIA','CIUDAD','DOMICILIO','PUESTO','SUELDO','FECHA DE ALTA','FECHA ACTUALIZACION','ACCIONES'];
         $employees=Employees::where('active_employee',1)->get();
         
         return view('employees.index',compact('heads'),compact('employees'));
@@ -48,7 +48,7 @@ class EmployeesController extends Controller
                 'salary_employee'=>'numeric',
                 'dateOfEntry_employee'=>'required',
                 'phone_employee'=>'required|min:10|max:10',
-                'photo_employee'=>'dimensions:min_width=100,min_height=200'
+                
             ]
         );
         $employee=Employees::where('cuil_employee','like',$request->cuil_employee)->get();
@@ -62,6 +62,7 @@ class EmployeesController extends Controller
                 $uploadSuccess=$request->file('photo_employee')->move($destinationPath,$filename);
                 $employee->photo_employee=$destinationPath.$filename;
             }
+
             
             $employee->cuil_employee=$request->cuil_employee;
             $employee->dateOfEntry_employee=$request->dateOfEntry_employee;
@@ -82,12 +83,15 @@ class EmployeesController extends Controller
             
         }
         else{
-            
-                $employee->first()->active_employee=1;
-                $employee->first()->save();
+                if($employee->first()->active_employee==false){
+                    $employee->first()->active_employee=1;
+                    $employee->first()->save();
+                }
+                else return back()->with('insert','no');
+                
             
         }
-        return back()->with('Ok','success');
+        return back()->with('insert','ok');
         
     }
 
@@ -118,7 +122,7 @@ class EmployeesController extends Controller
             'name2_employee'=>'max:20',
             'lastname1_employee'=>'required|min:1|max:20',
             'lastename2_employee'=>'max:20',
-            'salary_employee'=>'numeric',
+            'salary_employee'=>'required|numeric',
             'dateOfEntry_employee'=>'required',
             'phone_employee'=>'required'
             

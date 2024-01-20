@@ -11,22 +11,50 @@
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label for="cuit_provider">CUIT:</label>
-              <input type="text" class="form-control" name="cuit_provider" maxlength="11" inputmode="numeric">
-              <label for="name_provider">Nombre o Razón Social:</label>
-              <input type="text" name="name_provider" class="form-control" maxlength="20">
-              <br>
-              @livewire('selects')
-              <label for="postalCode_provider">Codigo Postal:</label>
-              <input type="text" name="postalCode_provider" class="form-control">
-              <label for="address_provider">Domicilio:</label>
-              <input type="text" name="address_provider" class="form-control">
-              <label for="phone_provider">Telefono/Celular:</label>
-              <input type="tel" name="phone_provider" class="form-control">
-              <label for="alias_provider">Alias:</label>
-              <input type="text" name="alias_provider" class="form-control">
-              <label for="contactName_provider">Nombre Contacto</label>
-              <input type="text" name="contactName_provider" class="form-control">
+              <div class="row mb-4">
+                <div class="col"><label for="cuit_provider">CUIT:</label></div>
+                <div class="col"><input type="text" class="form-control" name="cuit_provider" maxlength="11" autocomplete="on" required></div>
+              </div>
+              <div class="row mb-4">
+                <div class="col"><label for="name_provider">Nombre o Razón Social:</label></div>
+                <div class="col"><input type="text" name="name_provider" class="form-control" maxlength="20" autocomplete="on" required></div>
+              </div>              
+              <div class="row mb-4">
+                <div class="col"><label for="fantasyName_provider">Nombre de Fantasia:</label></div>
+                <div class="col"><input type="text" name="fantasyName_provider" class="form-control" maxlength="20" autocomplete="on"></div>
+              </div>
+              <div class="row mb-4">
+                <div class="col"><label for="country_provider">País:</label></div>
+                <div class="col"><input type="text" name="country_name" class="form-control" maxlength="20" autocomplete="on"></div>
+              </div>
+              <div class="row mb-4">
+                <div class="col"><label for="state_provider">Provincia:</label></div>
+                <div class="col"><input type="text" class="form-control" name="state_provider" autocomplete="on"></div>
+              </div>
+              <div class="row mb-4">
+                <div class="col"><label for="city_provider">Ciudad:</label></div>
+                <div class="col"><input type="text" class="form-control" name="city_provider" maxlength="20" autocomplete="on"></div>
+              </div>
+              <div class="row mb-4">
+                <div class="col"><label for="postalCode_provider">Codigo Postal:</label></div>
+                <div class="col"><input type="text" name="postalCode_provider" class="form-control" maxlength="10" autocomplete="on"></div>
+              </div>
+              <div class="row mb-4">
+                <div class="col"><label for="address_provider">Domicilio:</label></div>
+                <div class="col"><textarea name="address_provider" class="form-control" maxlength="50" autocomplete="on" cols="25" rows="2"></textarea></div>
+              </div>
+              <div class="row mb-4">
+                <div class="col"><label for="phone_provider">Telefono/Celular:</label></div>
+                <div class="col"><input type="tel" name="phone_provider" class="form-control" maxlength="10" autocomplete="on"></div>
+             . </div>
+              <div class="row mb-4">
+                <div class="col"><label for="alias_provider">Alias:</label></div>
+                <div class="col"><input type="text" name="alias_provider" class="form-control" maxlength="20" autocomplete="on"></div>
+              </div>
+              <div class="row mb-4">
+                <div class="col"><label for="contactName_provider">Nombre Contacto</label></div>
+                <div class="col"><input type="text" name="contactName_provider" class="form-control"></div>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
