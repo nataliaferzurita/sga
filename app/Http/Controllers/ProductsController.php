@@ -56,11 +56,12 @@ class ProductsController extends Controller
         }
         $product->name_product=$request->name_product;
         $product->provider_product=$request->provider_product;
+        $product->artProvider_product=$request->artProvider_product;
         $product->fabric_product=$request->fabric_product;
         $product->season_product=$request->season_product;
         $product->size_product=$request->size_product;
         $product->color_product=$request->color_product;
-        $product->typeProduct=$request->typeProduct;
+        $product->typeProduct_product=$request->typeProduct_product;
         $product->stock_product=$request->stock_product;
         $product->cost_product=$request->cost_product;
         $product->price_product=$request->price_product;

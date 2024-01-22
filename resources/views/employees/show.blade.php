@@ -11,7 +11,7 @@
           <h5 class="d-flex justify-content-center"><strong>{{$row->name1_employee." ".$row->name2_employee." ".$row->lastname1_employee." ".$row->lastname2_employee}}</strong></h5>
           @if ($row->photo_employee!=null)
             <div>
-                <img src="{{$row->photo_employee}}" class="mx-auto d-block" alt="Foto del Empleado">
+                <img src="{{$row->photo_employee}}" class="mx-auto d-block" alt="Foto del Empleado" height="300px">
             </div>
           @endif
           <div class="row">

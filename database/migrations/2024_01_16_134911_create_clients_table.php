@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name1_client',20);
             $table->string('name2_client',20)->nullable();
             $table->string('lastname_client',20);
+            $table->string('lastname2_client',20)->nullable();
             $table->string('phone_client',10)->nullable();
             $table->string('country_client',20)->nullable();
             $table->string('state_client',20)->nullable();

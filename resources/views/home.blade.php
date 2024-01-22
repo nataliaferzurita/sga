@@ -11,6 +11,7 @@
 $empleados=App\Models\Employees::all();
 $proveedores=App\Models\Providers::all();
 $productos=App\Models\Products::all();
+$clientes=App\Models\Clients::all()
 @endphp
 <div>
     <div class="row">
@@ -23,7 +24,7 @@ $productos=App\Models\Products::all();
             theme="primary" url="/providers" url-text="Ver Proveedores"/>
         </div>
         <div class="col">
-            <x-adminlte-small-box title="528" text="Clientes" icon="fas fa-users"
+            <x-adminlte-small-box title="{{count($clientes)}}" text="Clientes" icon="fas fa-users"
             theme="success" url="/clients" url-text="Ver Clientes"/>
         </div>
     

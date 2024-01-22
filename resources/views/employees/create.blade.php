@@ -46,7 +46,7 @@ $positions=App\Models\Position::where('active_position',1)->get();
                   </div>
                   <div class="row">
                     <div class="col mb-4"><label for="phone_employee">Telefono/Celular:</label></div>
-                    <div class="col mb-4"><input type="tel" class="form-control" name="phone_employee" maxlength="10" autocomplete="on"></div>
+                    <div class="col mb-4"><input type="tel" class="form-control" name="phone_employee" maxlength="10" autocomplete="on" placeholder="sin 0 y sin 15"></div>
                   </div>
                   <div class="row">
                     <div class="col mb-4"><label for="country_employee">País:</label></div>
@@ -66,7 +66,7 @@ $positions=App\Models\Position::where('active_position',1)->get();
                   </div> 
                   <div class="row">
                     <div class="col mb-4"><label class="form-contol" for="address_employee">Domicilio:</label></div>
-                    <div class="col mb-4"><textarea name="address_employee" id="" cols="25" rows="2" class="form-control" maxlength="50" autocomplete="on"></textarea></div>
+                    <div class="col mb-4"><textarea style="resize: none" name="address_employee" id="" cols="25" rows="2" class="form-control" maxlength="50" autocomplete="on"></textarea></div>
                   </div>
                   <div class="row">
                     <div class="col mb-4"><label for="dateOfEntry_employee">Fecha de Ingreso:</label></div>
@@ -95,7 +95,7 @@ $positions=App\Models\Position::where('active_position',1)->get();
                 </div>          
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
               <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
           </div>

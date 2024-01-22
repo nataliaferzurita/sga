@@ -34,7 +34,7 @@
           </div>
           <div class="row">
             <div class="col"><label for="state_client">Provincia:</label></div>
-            <div><label for="state_client">{{$row->state_client}}</label></div>
+            <div class="col"><label for="state_client">{{$row->state_client}}</label></div>
           </div>
           <div class="row">
             <div class="col"><label for="city_client">Ciudad:</label></div>
@@ -52,7 +52,7 @@
         <form id="form-delete" action="{{route('clients.destroy',$row)}}" method="post">
             @method('delete') @csrf
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-danger">Eliminar</button>
               </div>
         </form>

@@ -31,7 +31,7 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'dni_client'=> 'required',
+            'dni_client'=> 'required|numeric',
             'name1_client'=> 'required|min:1|max:20',
             'name2_client'=> 'max:20',
             'lastname_client'=>'required'

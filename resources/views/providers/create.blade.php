@@ -41,7 +41,7 @@
               </div>
               <div class="row mb-4">
                 <div class="col"><label for="address_provider">Domicilio:</label></div>
-                <div class="col"><textarea name="address_provider" class="form-control" maxlength="50" autocomplete="on" cols="25" rows="2"></textarea></div>
+                <div class="col"><textarea style="resize: none"  name="address_provider" class="form-control" maxlength="50" autocomplete="on" cols="25" rows="2"></textarea></div>
               </div>
               <div class="row mb-4">
                 <div class="col"><label for="phone_provider">Telefono/Celular:</label></div>

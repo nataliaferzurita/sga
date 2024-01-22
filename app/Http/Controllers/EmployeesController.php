@@ -117,7 +117,7 @@ class EmployeesController extends Controller
     public function update(Request $request, Employees $employee)
     {
        $request->validate([
-            'cuil_employee'=>'required|min:11|max:11|unique:employees',
+            'cuil_employee'=>'required|min:11|max:11',
             'name1_employee'=>'required|min:1|max:20',
             'name2_employee'=>'max:20',
             'lastname1_employee'=>'required|min:1|max:20',
@@ -127,8 +127,8 @@ class EmployeesController extends Controller
             'phone_employee'=>'required'
             
        ]);
-       if($request->hasFile('photo_employee')){
-            $file=$request->file('photo_employee');
+       if($request->hasFile('photo_employee')){ 
+            $file=$request->file('photo_employee');   
             $destinationPath='images/employees/';
             $filename=time()."-". $file->getClientOriginalName();
             $uploadSuccess=$request->file('photo_employee')->move($destinationPath,$filename);
@@ -149,6 +149,7 @@ class EmployeesController extends Controller
         $employee->address_employee=$request->address_employee;
         $employee->position_employee=$request->position_employee;
         $employee->salary_employee=$request->salary_employee;
+        
        $employee->save();
        return back()->with('update','ok');
     }
@@ -158,7 +159,7 @@ class EmployeesController extends Controller
      */
     public function destroy(Employees $employee)
     {
-        $employee->active_position=0;
+        $employee->active_employee=0;
         $employee->save();
         return back()->with('eliminar','ok');
     }

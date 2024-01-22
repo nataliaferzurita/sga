@@ -14,7 +14,7 @@ class ProvidersController extends Controller
      */
     public function index()
     {
-        $heads=['ID','CUIT','NOMBRE','TELEFONO','PAIS','PROVICIA','CIUDAD','CODIGO POSTAL','DOMICILIO','ALIAS','CONTACTO','FECHA CREACION','FECHA DE ACTUALIZACION','ACTIVO','ACCIONES'];
+        $heads=['ID','CUIT','NOMBRE O RAZÓN SOCIAL','NOMBRE FANTASIA','TELEFONO','PAIS','PROVICIA','CIUDAD','CODIGO POSTAL','DOMICILIO','ALIAS','CONTACTO','FECHA CREACION','FECHA DE ACTUALIZACION','ACTIVO','ACCIONES'];
         $providers=Providers::where('active_provider',1)->get();
         return view('providers.index',compact('heads'),compact('providers'));
         
@@ -53,6 +53,7 @@ class ProvidersController extends Controller
             $provider=new Providers();
             $provider->cuit_provider=$request->cuit_provider;
             $provider->name_provider=$request->name_provider;
+            $provider->fantasyName_provider=$request->fantasyName_provider;
             $provider->phone_provider=$request->phone_provider;
             $provider->country_provider=$request->country_provider;
             $provider->state_provider=$request->state_provider;

@@ -25,6 +25,10 @@
             <div class="col"><label for="lastname_client">{{$row->lastname_client}}</label></div>
           </div>
           <div class="row">
+            <div class="col"><label for="lastname2_client">Segundo Apellido:</label></div>
+            <div class="col"><label for="lastname2_client">{{$row->lastname2_client}}</label></div>
+          </div>
+          <div class="row">
             <div class="col"><label for="phone_client">Telefono:</label></div>
             <div class="col"><label for="phone_client">{{$row->phone_client}}</label></div>
           </div>
@@ -34,7 +38,7 @@
           </div>
           <div class="row">
             <div class="col"><label for="state_client">Provincia:</label></div>
-            <div><label for="state_client">{{$row->state_client}}</label></div>
+            <div class="col"><label for="state_client">{{$row->state_client}}</label></div>
           </div>
           <div class="row">
             <div class="col"><label for="city_client">Ciudad:</label></div>
@@ -50,8 +54,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
         </div>
       </div>
     </div>

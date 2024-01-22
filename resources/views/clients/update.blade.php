@@ -31,6 +31,10 @@
                 <div class="col mb-3"><input type="text" name="lastname_client" class="form-control" value="{{$row->lastname_client}}"></div>
               </div>
               <div class="row">
+                <div class="col mb-4"><label for="lastname2_client">Segundo Apellido:</label></div>
+                <div><input type="text" name="lastname2_client" class="form-control" value={{$row->lastname2_client}}></div>
+              </div>
+              <div class="row">
                 <div class="col mb-3"><label for="phone_client">Telefono:</label></div>
                 <div class="col mb-3"><input type="text" name="phone_client" class="form-control" value="{{$row->phone_client}}"></div>
               </div>
@@ -52,12 +56,11 @@
               </div>
               <div class="row">
                 <div class="col"><label for="address_client">Domicilio:</label></div>
-                <div class="col"><input type="text" name="address_client" class="form-control" value="{{$row->address_client}}"></div>
+                <div class="col"><textarea name="address_client" id="address" cols="25" rows="2"></textarea></div>
               </div>
             </div>
-          
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
               <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
           </form>

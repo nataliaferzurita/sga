@@ -8,7 +8,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form id="form-update" action="{{route('employees.update',$row)}}" method="post">
+            <form id="form-update" action="{{route('employees.update',$row)}}" method="post" enctype="multipart/form-data">
               @method('put') @csrf
             <div class="modal-body">
                 
@@ -49,6 +49,10 @@
                   <br>
                   <label for="salary_employee">Sueldo:</label>
                   <input type="decimal" class="form-control" name="salary_employee" value="{{$row->salary_employee}}">
+                  <label for="photo_employee">Foto:</label>
+                  <input type="file" name="photo_employee" class="form-control-file">
+
+                  
               </div>
             </div>
             <div class="modal-footer">

@@ -5,10 +5,10 @@
 @section('content_header')
     <h1><strong>Productos</strong></h1><br>
     @include('products.create')
-    <button class="btn btn-primary" data-toggle="modal" data-target="#modalCreateProduct">Agregar</button>
+    
 @stop
 @section('content')
-
+<button class="btn btn-primary" data-toggle="modal" data-target="#modalCreateProduct">Agregar</button> <br><br>
 @if ($errors->any())
     @foreach ($errors->all() as $error)
         <x-adminlte-alert theme="danger" icon="fa fa-times" title="ERROR" dismissable>

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name_product',20);
+            $table->string('artProvider_product',20);
             $table->string('fabric_product',20);
             $table->string('season_product',20);
             $table->string('typeProduct_product',20);
@@ -21,11 +22,11 @@ return new class extends Migration
             $table->string('color_product',20);
             $table->string('description_product',100);
             $table->mediumText('photo_product')->nullable();
-            $table->integer('stock');
+            $table->integer('stock_product');
             $table->decimal('cost_product',12,2,true);
             $table->decimal('price_product',12,2,true);
-            $table->unsignedBigInteger('id_provider');
-            $table->foreign('id_provider')->references('id')->on('providers');
+            $table->unsignedBigInteger('provider_product');
+            $table->foreign('provider_product')->references('id')->on('providers');
             $table->boolean('active_product')->default(true);
             $table->timestamps();
         });
