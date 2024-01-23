@@ -55,42 +55,41 @@ class EmployeesController extends Controller
         if($employee->isEmpty()){
             $employee=new Employees();
             
-            if($request->hasFile('photo_employee')){
-                $file=$request->file('photo_employee');
-                $destinationPath='images/employees/';
-                $filename=time()."-". $file->getClientOriginalName();
-                $uploadSuccess=$request->file('photo_employee')->move($destinationPath,$filename);
-                $employee->photo_employee=$destinationPath.$filename;
-            }
-
-            
-            $employee->cuil_employee=$request->cuil_employee;
-            $employee->dateOfEntry_employee=$request->dateOfEntry_employee;
-            $employee->name1_employee=$request->name1_employee;
-            $employee->name2_employee=$request->name2_employee;
-            $employee->lastname1_employee=$request->lastname1_employee;
-            $employee->lastname2_employee=$request->lastname2_employee;
-            $employee->dateOfBirth_employee=$request->dateOfBirth_employee; 
-            $employee->nationality_employee=$request->nationality_employee;
-            $employee->phone_employee=$request->phone_employee;
-            $employee->country_employee=$request->country_employee;
-            $employee->state_employee=$request->state_employee;
-            $employee->city_employee=$request->city_employee;
-            $employee->address_employee=$request->address_employee;
-            $employee->position_employee=$request->position_employee;
-            $employee->salary_employee=$request->salary_employee;
-            $employee->save();
-            
         }
         else{
-                if($employee->first()->active_employee==false){
-                    $employee->first()->active_employee=1;
-                    $employee->first()->save();
+                $employee=$employee->first();
+                if($employee->active_employee==false){
+                    $employee->active_employee=1;
                 }
                 else return back()->with('insert','no');
                 
             
         }
+        if($request->hasFile('photo_employee')){
+            $file=$request->file('photo_employee');
+            $destinationPath='images/employees/';
+            $filename=time()."-". $file->getClientOriginalName();
+            $uploadSuccess=$request->file('photo_employee')->move($destinationPath,$filename);
+            $employee->photo_employee=$destinationPath.$filename;
+        }
+        else $employee->photo_employee=null;
+        
+        $employee->cuil_employee=$request->cuil_employee;
+        $employee->dateOfEntry_employee=$request->dateOfEntry_employee;
+        $employee->name1_employee=$request->name1_employee;
+        $employee->name2_employee=$request->name2_employee;
+        $employee->lastname1_employee=$request->lastname1_employee;
+        $employee->lastname2_employee=$request->lastname2_employee;
+        $employee->dateOfBirth_employee=$request->dateOfBirth_employee; 
+        $employee->nationality_employee=$request->nationality_employee;
+        $employee->phone_employee=$request->phone_employee;
+        $employee->country_employee=$request->country_employee;
+        $employee->state_employee=$request->state_employee;
+        $employee->city_employee=$request->city_employee;
+        $employee->address_employee=$request->address_employee;
+        $employee->position_employee=$request->position_employee;
+        $employee->salary_employee=$request->salary_employee;
+        $employee->save();
         return back()->with('insert','ok');
         
     }

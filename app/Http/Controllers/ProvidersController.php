@@ -51,28 +51,26 @@ class ProvidersController extends Controller
 
        if($provider->isEmpty()){
             $provider=new Providers();
-            $provider->cuit_provider=$request->cuit_provider;
-            $provider->name_provider=$request->name_provider;
-            $provider->fantasyName_provider=$request->fantasyName_provider;
-            $provider->phone_provider=$request->phone_provider;
-            $provider->country_provider=$request->country_provider;
-            $provider->state_provider=$request->state_provider;
-            $provider->city_provider=$request->city_provider;
-            $provider->postalCode_provider=$request->postalCode_provider;
-            $provider->address_provider=$request->address_provider;
-            $provider->alias_provider=$request->alias_provider;
-            $provider->contactName_provider=$request->contactName_provider;
-            $provider->save();
-           
-
        }
        else{
-                if($provider->first()->active_provider==false){
-                    $provider->first()->active_provider=true;
-                    $provider->first()->save();
-                }
-                else return back()->with('insert','no');
+            $provider=$provider->first();
+            if($provider->active_provider==false){
+                $provider->active_provider=true;
+            }                
+            else return back()->with('insert','no');
        }
+        $provider->cuit_provider=$request->cuit_provider;
+        $provider->name_provider=$request->name_provider;
+        $provider->fantasyName_provider=$request->fantasyName_provider;
+        $provider->phone_provider=$request->phone_provider;
+        $provider->country_provider=$request->country_provider;
+        $provider->state_provider=$request->state_provider;
+        $provider->city_provider=$request->city_provider;
+        $provider->postalCode_provider=$request->postalCode_provider;
+        $provider->address_provider=$request->address_provider;
+        $provider->alias_provider=$request->alias_provider;
+        $provider->contactName_provider=$request->contactName_provider;
+        $provider->save();
        return back()->with('insert','ok');
     }
 

@@ -106,7 +106,7 @@
           </div>
 
         </div>
-        <form action="{{route('employees.destroy',$row)}}" method="post">
+        <form id="form-delete" action="{{route('employees.destroy',$row)}}" method="post">
           @csrf @method('delete')
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
