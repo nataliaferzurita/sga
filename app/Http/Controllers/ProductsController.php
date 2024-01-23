@@ -91,7 +91,7 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, Products $product)
     {
         $request->validate([
             'name_product'=> 'required|min:1|max:20',
@@ -107,7 +107,7 @@ class ProductsController extends Controller
             'description_product'=>'required|min:1|max:100'
             
         ]);
-        $product=new Products();
+       
         if($request->hasFile('photo_product')){
 
             $file=$request->file('photo_product');
@@ -122,7 +122,7 @@ class ProductsController extends Controller
         $product->season_product=$request->season_product;
         $product->size_product=$request->size_product;
         $product->color_product=$request->color_product;
-        $product->typeProduct=$request->typeProduct;
+        $product->typeProduct_product=$request->typeProduct_product;
         $product->stock_product=$request->stock_product;
         $product->cost_product=$request->cost_product;
         $product->price_product=$request->price_product;
