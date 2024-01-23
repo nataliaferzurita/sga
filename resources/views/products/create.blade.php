@@ -39,9 +39,9 @@ $proveedores=App\Models\Providers::all();
               <div class="col mb-3"><label for="season_product">Temporada:</label></div>
               <div class="col mb-3">
                 <select name="season_product" id="season" class="form-control">
-                  <option value="1">Otoño-Invierno</option>
-                  <option value="2">Primavera-Verano</option>
-                  <option value="3">Fiesta</option>
+                  <option value="Otoño-Invierno">Otoño-Invierno</option>
+                  <option value="Primavera-Verano">Primavera-Verano</option>
+                  <option value="Fiesta">Fiesta</option>
                 </select>
               </div>
             </div>
@@ -73,7 +73,7 @@ $proveedores=App\Models\Providers::all();
               <div class="col"><label for="description_product">Descripcion:</label></div>
             </div>
             <div class="row mb-3">
-              <textarea name="description_product" id="" cols="50" rows="5" class="form-control" maxlength="100"></textarea>
+              <textarea style="resize: none" name="description_product" id="" cols="50" rows="5" class="form-control" maxlength="100"></textarea>
             </div>
             <div class="row">
               <div class="col"><label for="photo_product">Foto del Producto:</label></div>

@@ -10,7 +10,7 @@
         <div class="modal-body">
             @if ($row->photo_product!=null)
             <div>
-                <img src="{{$row->photo_employee}}" class="mx-auto d-block" alt="Foto del Producto" height="300px">
+                <img src="{{$row->photo_product}}" class="mx-auto d-block" alt="Foto del Producto" height="300px">
             </div>
           @endif
             <div class="row">
@@ -26,8 +26,8 @@
               <div class="col"><label for="season_product">{{$row->season_product}}</label></div>
             </div>
             <div class="row">
-              <div><label for="color_product">Color:</label></div>
-              <div><label for="color product">{{$row->color_product}}</label></div>
+              <div class="col"><label for="color_product">Color:</label></div>
+              <div class="col"><label for="color product">{{$row->color_product}}</label></div>
             </div>
             <div class="row">
               <div class="col"><label for="size_product">Talle:</label></div>
@@ -47,7 +47,7 @@
             </div>
             <div class="row">
               <div class="col"><label for="provider_product">Proveedor:</label></div>
-              <div class="col"><label for="provider_product">{{$row->provider_product}}</label></div>
+              <div class="col"><label for="provider_product">{{$row->provider->name_provider}}</label></div>
             </div>
             <div class="row">
               <div class="col"><label for="artProvider_product">Articulo del Provedor:</label></div>

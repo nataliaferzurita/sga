@@ -14,7 +14,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products=Products::where('active_product',1)->get();
-        $heads=['ID','PROVEEDOR','NOMBRE','TIPO TELA','TEMPORADA','TIPO PRODUCTO','TALLE','COLOR','DESCRIPCION','STOCK','COSTO','PRECIO VENTA','ACCIONES'];
+        $heads=['ID','PROVEEDOR','ARTICULO PROVEEDOR','NOMBRE','TEMPORADA','TIPO PRODUCTO','TIPO TELA','TALLE','COLOR','STOCK','COSTO','PRECIO VENTA','DESCRIPCIÓN','ACCIONES'];
         return view('products.index',compact('heads'),compact('products'));
     }
 
@@ -46,6 +46,7 @@ class ProductsController extends Controller
             
         ]);
         $product=new Products();
+       
         if($request->hasFile('photo_product')){
 
             $file=$request->file('photo_product');

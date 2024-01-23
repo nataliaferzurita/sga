@@ -17,26 +17,26 @@
     @endforeach  
 @endif
 
-<x-adminlte-datatable id="table5" :heads="$heads" theme="light" striped hoverable with-buttons>
+<x-adminlte-datatable id="productos" :heads="$heads" theme="light" striped hoverable with-buttons :config="['responsive'=>true]">
     @foreach($products as $row)
         <tr>
             @include('products.update')
             @include('products.show')
             @include('products.delete')
-
-            
+ 
             <td>{{$row->id}}</td>
             <td>{{$row->provider->name_provider}}</td>
+            <td>{{$row->artProvider_product}}</td>
             <td>{{$row->name_product}}</td>
-            <td>{{$row->fabric_product}}</td>
             <td>{{$row->season_product}}</td>
             <td>{{$row->typeProduct_product}}</td>
+            <td>{{$row->fabric_product}}</td>
             <td>{{$row->size_product}}</td>
             <td>{{$row->color_product}}</td>
-            <td>{{$row->description_product}}</td>
             <td>{{$row->stock_product}}</td>
             <td>{{$row->cost_product}}</td>
             <td>{{$row->price_product}}</td>
+           <td>{{$row->description_product}}</td>
             <td>
                 <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalShowProduct{{$row->id}}" title="Details">
                     <i class="fa fa-lg fa-fw fa-eye"></i>
