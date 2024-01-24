@@ -12,7 +12,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $heads=['ID','DNI','NOMBRE','SEGUNDO NOMBRE','APELLIDO','TELEFONO','PAIS','PROVINCIA','CIUDAD','CODIGO POSTAL','DOMICILIO','ACTIVO','FECHA DE CREACION','ULTIMA ACTUALIZACION','ACCIONES'];
+        $heads=['ID','DNI','NOMBRE','SEGUNDO NOMBRE','PRIMER APELLIDO','SEGUNDO APELLIDO','TELEFONO','PAIS','PROVINCIA','CIUDAD','CODIGO POSTAL','DOMICILIO','FECHA DE CREACION','ULTIMA ACTUALIZACION','ACCIONES'];
         $clients=Clients::where('active_client',1)->get();
         return view('clients.index',compact('heads'),compact('clients'));
     }
@@ -40,23 +40,24 @@ class ClientsController extends Controller
 
         if($client->isEmpty()){
             $client=new Clients();
-            $client->dni_client=$request->dni_client;
-            $client->name1_client=$request->name1_client;
-            $client->name2_client=$request->name2_client;
-            $client->lastname_client=$request->lastname_client;
-            $client->phone_client=$request->phone_client;
-            $client->country_client=$request->country_client;
-            $client->state_client=$request->state_client;
-            $client->city_client=$request->city_client;
-            $client->postalCode_client=$request->postalCode_client;
-            $client->address_client=$request->address_client;
-            $client->save();
+            
         }
         else{
+             
                 $client->first()->active_client=1;
-                $client->first()->save();
+               
         }
-
+        $client->dni_client=$request->dni_client;
+        $client->name1_client=$request->name1_client;
+        $client->name2_client=$request->name2_client;
+        $client->lastname_client=$request->lastname_client;
+        $client->phone_client=$request->phone_client;
+        $client->country_client=$request->country_client;
+        $client->state_client=$request->state_client;
+        $client->city_client=$request->city_client;
+        $client->postalCode_client=$request->postalCode_client;
+        $client->address_client=$request->address_client;
+        $client->save();
         return back()->with('Ok','success');
     }
 

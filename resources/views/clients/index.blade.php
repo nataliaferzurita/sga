@@ -23,9 +23,21 @@
             @include('clients.update')
             @include('clients.show')
             @include('clients.delete')
-            @foreach($row ->toArray() as $cell)
-                <td>{{ $cell}}</td>
-            @endforeach
+           
+            <td>{{$row->id}}</td>
+            <td>{{$row->dni_client}}</td>
+            <td>{{$row->name1_client}}</td>
+            <td>{{$row->name2_client}}</td>
+            <td>{{$row->lastname_client}}</td>
+            <td>{{$row->lastname2_client}}</td>
+            <td>{{$row->phone_client}}</td>
+            <td>{{$row->country_client}}</td>
+            <td>{{$row->state_client}}</td>
+            <td>{{$row->city_client}}</td>
+            <td>{{$row->postalCode_client}}</td>
+            <td>{{$row->address_client}}</td>
+            <td>{{$row->created_at}}</td>
+            <td>{{$row->updated_at}}</td>
             <td>
                 <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalShowClient{{$row->id}}" title="Details">
                     <i class="fa fa-lg fa-fw fa-eye"></i>

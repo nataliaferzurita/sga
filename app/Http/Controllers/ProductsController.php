@@ -45,8 +45,18 @@ class ProductsController extends Controller
             'description_product'=>'required|min:1|max:100'
             
         ]);
-        $product=new Products();
-       
+        $product=Products::where('name_product','like',$request->name_product)->get();
+        if($product->isEmpty()){
+            $product=new Products();
+            
+        }
+        else{
+                $product=$product->first();
+                if($product->active_product==false){
+                    $product->active_product=1;
+                }
+                else return back()->with('insert','no');
+            }   
         if($request->hasFile('photo_product')){
 
             $file=$request->file('photo_product');
@@ -55,6 +65,7 @@ class ProductsController extends Controller
             $uploadSuccess=$request->file('photo_product')->move($destinationPath,$filename);
             $product->photo_product=$destinationPath.$filename;
         }
+        else $product->photo_product=null;
         $product->name_product=$request->name_product;
         $product->provider_product=$request->provider_product;
         $product->artProvider_product=$request->artProvider_product;
@@ -137,7 +148,7 @@ class ProductsController extends Controller
      */
     public function destroy(Products $product)
     {
-        $product->active_position=0;
+        $product->active_product=0;
         $product->save();
         return back()->with('eliminar','ok');
     }

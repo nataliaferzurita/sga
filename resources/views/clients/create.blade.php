@@ -54,7 +54,7 @@
             </div>
             <div class="row">
               <div class="col mb-4"><label for="address_client">Domicilio:</label></div>
-              <div class="col mb-4"><textarea name="address_client" id="address" cols="25" rows="2"></textarea></div>
+              <div class="col mb-4"><textarea name="address_client" id="address" cols="25" rows="2" style="resize: none"></textarea></div>
             </div>
         </div>
        

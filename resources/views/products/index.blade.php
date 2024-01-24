@@ -5,10 +5,18 @@
 @section('content_header')
     <h1><strong>Productos</strong></h1><br>
     @include('products.create')
-    
+    @include('products.bulkupload')
 @stop
 @section('content')
-<button class="btn btn-primary" data-toggle="modal" data-target="#modalCreateProduct">Agregar</button> <br><br>
+<div class="row float-left">
+    <div class="col">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalCreateProduct">Agregar</button>
+    </div>
+    <div class="col-md-auto">
+        <button class="btn btn-success" data-toggle="modal" data-target="#modalBulkUploadProduct">Carga Masiva</button>
+    </div>
+</div>
+ <br><br>
 @if ($errors->any())
     @foreach ($errors->all() as $error)
         <x-adminlte-alert theme="danger" icon="fa fa-times" title="ERROR" dismissable>

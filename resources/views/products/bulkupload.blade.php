@@ -1,9 +1,9 @@
 @php
 $proveedores=App\Models\Providers::all();  
 @endphp
-<form id="form-create" action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
+<form id="form-create" action="{{route('products.import')}}" method="post" enctype="multipart/form-data">
   @csrf
-  <div class="modal fade" id="modalCreateProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalBulkUploadProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -50,18 +50,6 @@ $proveedores=App\Models\Providers::all();
               <div class="col mb-3"><input type="text" name="typeProduct_product" class="form-control" autocomplete="on" maxlength="20"></div>
             </div>
             <div class="row">
-              <div class="col mb-3"><label for="size_product">Talle:</label></div>
-              <div class="col mb-3"><input type="text" name="size_product" class="form-control" autocomplete="on" maxlength="20"></div>
-            </div>
-            <div class="row">
-              <div class="col mb-3"><label for="color_product">Color:</label></div>
-              <div class="col mb-3"><input type="text" name="color_product" class="form-control" autocomplete="on" maxlength="20"></div>
-            </div>
-            <div class="row">
-              <div class="col mb-3"><label for="stock_product">Stock:</label></div>
-              <div class="col mb-3"><input type="number" name="stock_product" class="form-control" autocomplete="on"></div>
-            </div>
-            <div class="row">
               <div class="col mb-3"><label for="cost_product">Costo:</label></div>
               <div class="col mb-3"><input type="text" name="cost_product" class="form-control"></div>
             </div>
@@ -78,6 +66,9 @@ $proveedores=App\Models\Providers::all();
             <div class="row">
               <div class="col"><label for="photo_product">Foto del Producto:</label></div>
               <div><input type="file" name="photo_product" id="photo" class="form-control-file"></div>
+            </div>
+            <div class="row">
+                <div class="col"><a href="{{route('products.download')}}">Descargar Plantilla</a></div>
             </div>
         </div>
         <div class="modal-footer">

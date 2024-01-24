@@ -98,7 +98,7 @@ class EmployeesController extends Controller
      * Display the specified resource.
      */
     public function show(Employees $employee){
-       return view('employees.show',compact('employee'));
+       
     }
 
     /**
