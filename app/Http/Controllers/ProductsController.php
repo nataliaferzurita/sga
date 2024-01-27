@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ProductsImport;
 use Illuminate\Http\Request;
 
 use App\Models\Products;
+use Maatwebsite\Excel\Excel as ExcelExcel;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductsController extends Controller
@@ -156,12 +158,10 @@ class ProductsController extends Controller
 
     public function import(Request $request){
         if($request->hasFile('document_products')){
-            $path=$request->file('document_products')->getRealPath();
-            $datos= Excel::load($path,function($reader){})->get();
-            return dd($datos);
+            Excel::import(new ProductsImport, $request->file('document_products'));
+
         }
-     
-         
+    
     }
 
     public function download(){
