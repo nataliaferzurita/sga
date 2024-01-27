@@ -41,4 +41,5 @@ Route::get('provider/{provider}/pdf',[ProvidersController::class,'pdf'])->name('
 Route::resource('providers',ProvidersController::class);
 Route::resource('clients',ClientsController::class);
 Route::resource('products',ProductsController::class);
-Route::post('products/import',[ProductsController::class,'import']);
+Route::post('import',[ProductsController::class,'import'])->name('products.import');
+Route::get('download',[ProductsController::class,'download'])->name('products.download');

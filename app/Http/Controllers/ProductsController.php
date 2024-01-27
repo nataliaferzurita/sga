@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Products;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductsController extends Controller
 {
@@ -80,7 +81,7 @@ class ProductsController extends Controller
         $product->description_product=$request->description_product;
         $product->save();
 
-        return back()->with('Ok','success');
+        return back()->with('insert','ok');
     }
 
     /**
@@ -151,5 +152,19 @@ class ProductsController extends Controller
         $product->active_product=0;
         $product->save();
         return back()->with('eliminar','ok');
+    }
+
+    public function import(Request $request){
+        if($request->hasFile('document_products')){
+            $path=$request->file('document_products')->getRealPath();
+            $datos= Excel::load($path,function($reader){})->get();
+            return dd($datos);
+        }
+     
+         
+    }
+
+    public function download(){
+        return response()->download('plantilla/platilla.ods');
     }
 }

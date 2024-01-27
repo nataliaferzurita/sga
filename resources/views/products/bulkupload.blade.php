@@ -13,6 +13,16 @@ $proveedores=App\Models\Providers::all();
           </button>
         </div>
         <div class="modal-body">
+          <x-adminlte-alert theme="info" title="Info" dismissable>
+            La carga masiva consiste en realizar una carga de los productos de 
+            forma más ágil utilizando otras herramientas. <br>
+            En el formulario debera especificar las carateristicas comunes del producto
+            ejemplo "pantalones de punto roma en distinto colores y talles". En el
+            formulario debera detallar caracteristicas tales como el tipo de tela,
+            temporada, proveedor, etcetera y en una platilla (la cual se provee en
+            el link 'Descargar Plantilla') detallar caracteristicas tales como el 
+            color, talle y cantidades cada una en su respectiva columna.
+          </x-adminlte-alert>
             <div class="row">
                 <div class="col mb-3"><label for="name_product">Nombre Producto:</label></div>
                 <div class="col mb-3"><input type="text" name="name_product" class="form-control" autocomplete="on" maxlength="20"></div>
@@ -64,8 +74,8 @@ $proveedores=App\Models\Providers::all();
               <textarea style="resize: none" name="description_product" id="" cols="50" rows="5" class="form-control" maxlength="100"></textarea>
             </div>
             <div class="row">
-              <div class="col"><label for="photo_product">Foto del Producto:</label></div>
-              <div><input type="file" name="photo_product" id="photo" class="form-control-file"></div>
+              <div class="col"><label for="document_products">Cargar Plantilla:</label></div>
+              <div><input type="file" name="document_products" id="document" class="form-control-file"></div>
             </div>
             <div class="row">
                 <div class="col"><a href="{{route('products.download')}}">Descargar Plantilla</a></div>
