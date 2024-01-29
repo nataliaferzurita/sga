@@ -17,7 +17,9 @@ class ProductsController extends Controller
     public function index()
     {
         $products=Products::where('active_product',1)->get();
-        $heads=['ID','PROVEEDOR','ARTICULO PROVEEDOR','NOMBRE','TEMPORADA','TIPO PRODUCTO','TIPO TELA','TALLE','COLOR','STOCK','COSTO','PRECIO VENTA','DESCRIPCIÓN','ACCIONES'];
+        $amount=$products->sum('cost_product');
+        $heads=['ID','PROVEEDOR','ARTICULO PROVEEDOR','NOMBRE','TEMPORADA','TIPO PRODUCTO','TIPO TELA','TALLE','COLOR','STOCK','COSTO','PRECIO VENTA','DESCRIPCIÓN','FECHA ALTA','ULTIMA ACTUALIZACION','ACCIONES'];
+        
         return view('products.index',compact('heads'),compact('products'));
     }
 
@@ -160,11 +162,13 @@ class ProductsController extends Controller
         if($request->hasFile('document_products')){
             Excel::import(new ProductsImport, $request->file('document_products'));
 
+            return back()->with('insert','ok');
         }
+        else return back()->with('insert','no');
     
     }
 
     public function download(){
-        return response()->download('plantilla/platilla.ods');
+        return response()->download('plantilla/plantilla.xlsx');
     }
 }

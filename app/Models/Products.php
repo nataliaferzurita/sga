@@ -9,7 +9,20 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     use HasFactory;
-
+   protected $fillable=[
+            'artProvider_product',
+            'name_product',
+            'season_product',
+            'typeProduct_product',
+            'fabric_product',
+            'size_product',
+            'color_product',
+            'stock_product',
+            'cost_product',
+            'price_product',
+            'description_product',
+            'provider_product'
+];
     public function provider(){
         return $this->belongsTo(Providers::class,'provider_product','id');
     }
@@ -47,7 +60,7 @@ class Products extends Model
     }
 
     public function setColorProduct($value){
-        $this->attributes["color_product"]=strtolower($value);
+        $this->attributes['color_product']=strtolower($value);
     }
 
     public function getColorProduct($value){

@@ -7,6 +7,10 @@
     @include('products.create')
     @include('products.bulkupload')
 @stop
+@php
+    $amount_cost=0;
+    $amount_price=0;
+@endphp
 @section('content')
 <div class="row float-left">
     <div class="col">
@@ -24,6 +28,7 @@
         </x-adminlte-alert>
     @endforeach  
 @endif
+
 
 <x-adminlte-datatable id="productos" :heads="$heads" theme="light" striped hoverable with-buttons :config="['responsive'=>true]">
     @foreach($products as $row)
@@ -44,7 +49,9 @@
             <td>{{$row->stock_product}}</td>
             <td>{{$row->cost_product}}</td>
             <td>{{$row->price_product}}</td>
-           <td>{{$row->description_product}}</td>
+            <td>{{$row->description_product}}</td>
+            <td>{{$row->created_at}}</td>
+            <td>{{$row->updated_at}}</td>
             <td>
                 <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalShowProduct{{$row->id}}" title="Details">
                     <i class="fa fa-lg fa-fw fa-eye"></i>
@@ -57,9 +64,17 @@
                 </button>
             </td>
         </tr>
+    @php($amount_cost=$amount_cost+$row->stock_product*$row->cost_product)
         
+   
     @endforeach
 </x-adminlte-datatable>
+<br>
+<div>
+    <h2><strong>Capital Invertido:${{$amount_cost}}</strong></h2>
+</div>
+<br>
+
 
 @stop
 

@@ -1,5 +1,5 @@
 @php
-$proveedores=App\Models\Providers::all();  
+$proveedores=App\Models\Providers::where('active_provider',1);  
 @endphp
 <form id="form-create" action="{{route('products.import')}}" method="post" enctype="multipart/form-data">
   @csrf
@@ -14,14 +14,10 @@ $proveedores=App\Models\Providers::all();
         </div>
         <div class="modal-body">
           <x-adminlte-alert theme="info" title="Info" dismissable>
-            La carga masiva consiste en realizar una carga de los productos de 
-            forma más ágil utilizando otras herramientas. <br>
-            En el formulario debera especificar las carateristicas comunes del producto
-            ejemplo "pantalones de punto roma en distinto colores y talles". En el
-            formulario debera detallar caracteristicas tales como el tipo de tela,
-            temporada, proveedor, etcetera y en una platilla (la cual se provee en
-            el link 'Descargar Plantilla') detallar caracteristicas tales como el 
-            color, talle y cantidades cada una en su respectiva columna.
+            La carga masiva intenta agilizar la carga de productos utilizando como soporte otras herramienta. <br>
+            En este caso particular una planilla de excel. Para poder efectivizar la carga se porvee al usuario <br>
+            una plantilla donde debera especificar las caraterísticas del producto en la columna correspondiente <br>
+            como lo haría en un formulario de carga normal para luego cargar el archivo y así finalizar el proceso. 
           </x-adminlte-alert>
             <div class="row">
               <div class="col"><label for="document_products">Cargar Plantilla:</label></div>
