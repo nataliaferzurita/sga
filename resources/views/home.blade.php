@@ -8,10 +8,11 @@
 
 @section('content')
 @php
-$empleados=App\Models\Employees::all();
-$proveedores=App\Models\Providers::all();
-$productos=App\Models\Products::all();
-$clientes=App\Models\Clients::all()
+$empleados=App\Models\Employees::where('active_employee',true)->get();
+$proveedores=App\Models\Providers::where('active_provider',true)->get();
+$productos=App\Models\Products::where('active_product',true)->get();
+$clientes=App\Models\Clients::where('active_client',true)->get();
+$ventas=App\Models\Sales::where('active_sale',true)->groupBy('id')->get();
 @endphp
 <div>
     <div class="row">
@@ -35,11 +36,11 @@ $clientes=App\Models\Clients::all()
                 theme="info" url="/products" url-text="Ver Productos"/>
         </div>
         <div class="col">
-            <x-adminlte-small-box title="528" text="Ventas" icon="fa fa-money"
-            theme="secondary" url="#" url-text="Ver Ventas"/>
+            <x-adminlte-small-box title="{{count($ventas)}}" text="Ventas" icon="fa fa-money"
+            theme="secondary" url="/sales" url-text="Ver Ventas"/>
         </div>
         <div class="col">
-            <x-adminlte-small-box title="528" text="Gastos" icon="fa fa-pie-chart"
+            <x-adminlte-small-box title="528" text="Modista" icon="fa fa-pie-chart"
             theme="danger" url="#" url-text="Ver Ventas"/>
         </div>
     </div>

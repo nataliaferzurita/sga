@@ -64,16 +64,27 @@
                 </button>
             </td>
         </tr>
-    @php($amount_cost=$amount_cost+$row->stock_product*$row->cost_product)
+    
+    @php
+        $amount_cost=$amount_cost+$row->stock_product*$row->cost_product;
+        $amount_price=amount_price+$row->stock_product*$row->price_product;
+    @endphp
         
    
     @endforeach
 </x-adminlte-datatable>
 <br>
-<div>
-    <h2><strong>Capital Invertido:${{$amount_cost}}</strong></h2>
+<div class="row">
+    <div class="col"><h4><strong>Capital Invertido:${{$amount_cost}}</strong></h4></div>
+    <div class="col"><h4><strong>Ingreso:${{$amount_price}}</strong></h4></div>
+    <div class="col"><h4><strong>Diferencia:${{$amount_price-$amount_cost}}</strong></h4></div>
 </div>
-<br>
+
+<div class="row float-right">
+    <div class="col"><a class="btn btn-primary" href="/home">Volver</a></div>
+</div>
+
+
 
 
 @stop
