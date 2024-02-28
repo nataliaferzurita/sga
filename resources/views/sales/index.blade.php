@@ -1,13 +1,24 @@
 @extends('adminlte::page')
 
-@section('title', 'Cargos')
+@section('title', 'Ventas')
 
 @section('content_header')
     <h1><strong>Ventas</strong></h1><br>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#modalCreateSale">Agregar</button>
+   
+    
 @stop
-@section('content')
 
+@section('content')
+<div class="row float-right">
+    <div class="col"><a class="btn btn-success" href="/home">Volver</a></div>
+</div>
+<div class="row float-left">
+    <form action="{{route('sales.create')}}" method="get">
+        <button class="btn btn-primary" type="submit">Agregar</button>
+    </form>
+    
+</div>
+ <br><br>
 @if ($errors->any())
     @foreach ($errors->all() as $error)
         <x-adminlte-alert theme="danger" icon="fa fa-times" title="ERROR" dismissable>
@@ -16,34 +27,37 @@
     @endforeach  
 @endif
 
-<x-adminlte-datatable id="sales" :heads="$heads" theme="light" striped hoverable with-buttons :config="['responsive'=>true]">
+
+<x-adminlte-datatable id="ventas" :heads="$heads" theme="light" striped hoverable with-buttons :config="['responsive'=>true]">
     @foreach($sales as $row)
+       
         <tr>
-            <td>{{$row->created_at}}</td>
+            @include('sales.update')
+            @include('sales.show')
+            @include('sales.delete')
+ 
             <td>{{$row->id}}</td>
+            <td>{{$row->created_at}}</td>
+            <td>{{$row->employee->full_name()}}</td>
+            <td>{{$row->client->full_name()}}</td>
             <td>{{$row->type_sale}}</td>
-            <td>{{$row->idEmployee_sale}}</td>
-            <td>{{$row->idClient_sale}}</td>
-            <td>{{$row->idProduct_sale}}</td>
-            <td>{{$row->quantity_sale}}</td>
-            <td>{{$row->price_sale}}</td>
-            <td>{{$row->quantity_sale*$row->price_sale}}</td>
-            <td>{{$row->payment}}</td>
+            <td>{{$row->payment_sale}}</td>
             <td>
-                <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalShowSale{{$row->id}}" title="Details">
+                <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalShowProduct{{$row->id}}" title="Details">
                     <i class="fa fa-lg fa-fw fa-eye"></i>
                 </button>
-                <button type="button" class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal" data-target="#modalEditSale{{$row->id}}" title="Edit">
+                <button type="button" class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal" data-target="#modalEditProduct{{$row->id}}" title="Edit">
                     <i class="fa fa-lg fa-fw fa-pen"></i>
                 </button>
-                <button class="btn btn-xs btn-default text-danger mx-1 shadow" data-toggle="modal" data-target="#modalDeleteSale{{$row->id}}" title="Delete">
+                <button class="btn btn-xs btn-default text-danger mx-1 shadow" data-toggle="modal" data-target="#modalDeleteProduct{{$row->id}}" title="Delete">
                     <i class="fa fa-lg fa-fw fa-trash"></i>
                 </button>
             </td>
-        </tr>
-        
+        </tr>    
+   
     @endforeach
 </x-adminlte-datatable>
+<br>
 
 @stop
 
@@ -64,26 +78,34 @@
 
 @endif
 
-
-@if (session('insert') or session('eliminar') or session('update')=='ok')
-<script>
-    Swal.fire({
-    icon: 'success',
-    title: '¡La operación fue realizada exitosamente!',
-    showConfirmButton: false,
-    timer: 1500
-})
-</script>
-@endif
-@if (session('insert')=='no')
+@if (Session::has('Ok'))
     <script>
         Swal.fire({
-        icon: 'error',
-        title: 'La operacion no se puedo realizar correctamente, el puesto ya existe.',
+        icon: 'success',
+        title: '¡El registro fue realizado exitosamente!',
         showConfirmButton: false,
-        timer: 3000
+        timer: 1500
     })
-    </script>   
+
+    </script>
+@endif
+@if (session('eliminar')=='ok')
+    <script>
+         Swal.fire(
+            '¡Eliminado!',
+            '¡El registro fue eliminado correctamente!.',
+            'success'
+            )
+    </script>
+@endif
+@if (session('update')=='ok')
+    <script>
+         Swal.fire(
+            '¡Actualizado!',
+            '¡El registro fue actualizado correctamente!.',
+            'success'
+            )
+    </script>
 @endif
 <script>
     $('#form-delete').submit(function(e){

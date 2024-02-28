@@ -13,7 +13,7 @@ class SalesController extends Controller
      */
     public function index()
     {
-        $heads=['FECHA','ID','TIPO VENTA','VENDEDOR','CLIENTE','PRODUCTO','CANTIDAD','PRECIO','SUBTOTAL','FORMA PAGO'];
+        $heads=['FECHA','ID','TIPO VENTA','VENDEDOR','CLIENTE','FORMA PAGO'];
         $sales=Sales::where('active_sale',1)->get();
         return view('sales.index',compact('heads'),compact('sales'));
     }
@@ -23,7 +23,7 @@ class SalesController extends Controller
      */
     public function create()
     {
-        //
+        return view('sales.create');
     }
 
     /**

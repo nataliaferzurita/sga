@@ -13,7 +13,9 @@ class Employees extends Model
     public function position(){
         return $this->belongsTo(Position::class,'position_employee','id');
     }
-
+     public function sales(){
+        return $this->hasMany(Sales::class);
+     }
     public function setName1EmployeeAttribute($value){
         $this->attributes['name1_employee']=strtolower($value);
     }
@@ -89,4 +91,12 @@ class Employees extends Model
         return ucwords($value);
     }
 
+    public function getFullNameAttribute(){
+        return ucwords(
+                        $this->attributes['name1_employee']." "
+                        .$this->attributes['name2_employee']." "
+                        .$this->attributes['lastname1_employee']." "
+                        .$this->attributes['lastname2_employee']
+                    );
+    }
 }

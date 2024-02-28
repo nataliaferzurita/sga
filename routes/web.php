@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProvidersController;
+use App\Http\Controllers\SalesController;
 use App\Models\Employees;
 use App\Models\Providers;
 use Database\Factories\EmployeesFactory;
@@ -41,5 +42,6 @@ Route::get('provider/{provider}/pdf',[ProvidersController::class,'pdf'])->name('
 Route::resource('providers',ProvidersController::class);
 Route::resource('clients',ClientsController::class);
 Route::resource('products',ProductsController::class);
+Route::resource('sales',SalesController::class);
 Route::post('import',[ProductsController::class,'import'])->name('products.import');
 Route::get('download',[ProductsController::class,'download'])->name('products.download');

@@ -9,4 +9,12 @@ class Clients extends Model
 {
     use HasFactory;
     protected $fillable=['dni_client'];
+
+    public function getFullNameAttribute(){
+        return ucwords($this->attributes['name1_client']." "
+        .$this->attributes['name2_client']." "
+        .$this->attributes['lastname_client']." "
+        .$this->attributes['lastname2_client']
+    );
+    }
 }

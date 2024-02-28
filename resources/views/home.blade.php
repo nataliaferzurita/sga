@@ -36,13 +36,10 @@ $ventas=App\Models\Sales::where('active_sale',true)->groupBy('id')->get();
                 theme="info" url="/products" url-text="Ver Productos"/>
         </div>
         <div class="col">
-            <x-adminlte-small-box title="{{count($ventas)}}" text="Ventas" icon="fa fa-money"
-            theme="secondary" url="/sales" url-text="Ver Ventas"/>
+            <x-adminlte-small-box title="{{count($ventas)}}" text="Ventas" icon="fa fa-shopping-cart"
+            theme="danger" url="/sales" url-text="Ver Ventas"/>
         </div>
-        <div class="col">
-            <x-adminlte-small-box title="528" text="Modista" icon="fa fa-pie-chart"
-            theme="danger" url="#" url-text="Ver Ventas"/>
-        </div>
+        
     </div>
 </div>
 

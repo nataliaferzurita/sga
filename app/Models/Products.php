@@ -66,4 +66,8 @@ class Products extends Model
     public function getColorProduct($value){
         return ucwords($value);
     }
+
+    public function getFullNameAttribute(){
+        return $this->attributes['artProvider_product']." ".$this->attributes['name_product'];
+    }
 }

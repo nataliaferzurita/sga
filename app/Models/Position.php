@@ -11,7 +11,7 @@ class Position extends Model
     protected $fillable=['name_position'];
 
     public function employees(){
-        return $this->hasMany(Employees::class);
+        return $this->hasMany(Employees::class,'idEmployee_sale','id');
     }
 
    public function setNamePositionAttribute($value){

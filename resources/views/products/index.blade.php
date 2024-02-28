@@ -67,7 +67,7 @@
     
     @php
         $amount_cost=$amount_cost+$row->stock_product*$row->cost_product;
-        $amount_price=amount_price+$row->stock_product*$row->price_product;
+        $amount_price=$amount_price+$row->stock_product*$row->price_product;
     @endphp
         
    
