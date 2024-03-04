@@ -9,6 +9,7 @@
 @stop
 
 @section('content')
+
 <div class="row float-right">
     <div class="col"><a class="btn btn-success" href="/home">Volver</a></div>
 </div>
@@ -41,7 +42,6 @@
             <td>{{$row->employee->full_name()}}</td>
             <td>{{$row->client->full_name()}}</td>
             <td>{{$row->type_sale}}</td>
-            <td>{{$row->payment_sale}}</td>
             <td>
                 <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalShowProduct{{$row->id}}" title="Details">
                     <i class="fa fa-lg fa-fw fa-eye"></i>

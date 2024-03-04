@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sales;
-use App\Http\Requests\StoreSalesRequest;
-use App\Http\Requests\UpdateSalesRequest;
+use App\Models\Products;
+use Illuminate\Http\Request;
+use App\Models\Employees;
+use App\Models\Clients;
+
+
 
 class SalesController extends Controller
 {
@@ -13,7 +17,7 @@ class SalesController extends Controller
      */
     public function index()
     {
-        $heads=['FECHA','ID','TIPO VENTA','VENDEDOR','CLIENTE','FORMA PAGO'];
+        $heads=['FECHA','ID','TIPO VENTA','VENDEDOR','CLIENTE'];
         $sales=Sales::where('active_sale',1)->get();
         return view('sales.index',compact('heads'),compact('sales'));
     }
@@ -23,15 +27,29 @@ class SalesController extends Controller
      */
     public function create()
     {
-        return view('sales.create');
+        $employees=Employees::where('active_employee',true)->get();
+        $products=Products::where('active_product',true)->get();
+        $clients=Clients::where('active_client',true)->get();
+        return view('sales.create',[
+                                        'employees'=>$employees,
+                                        'products'=>$products,
+                                        'clients'=>$clients
+                                    ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSalesRequest $request)
+    public function store(Request $request)
     {
-        //
+        $productos=Products::where('active_product',true)->get();
+        /*$request->validate([
+            'client_sale'=>'required',
+            'employee_sale'=>'required',
+            'type_sale'=>'required'
+        ]);*/
+        return dd($request->all());
+        //return back()->with('insert','ok');
     }
 
     /**
@@ -53,7 +71,7 @@ class SalesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSalesRequest $request, Sales $sales)
+    public function update(Request $request, Sales $sales)
     {
         //
     }

@@ -93,10 +93,12 @@ class Employees extends Model
 
     public function getFullNameAttribute(){
         return ucwords(
-                        $this->attributes['name1_employee']." "
+                        $this->attributes['cuil_employee']." - "
+                        .$this->attributes['name1_employee']." "
                         .$this->attributes['name2_employee']." "
                         .$this->attributes['lastname1_employee']." "
                         .$this->attributes['lastname2_employee']
                     );
     }
+   
 }
